@@ -1,0 +1,129 @@
+{
+  "run_id": "20251209_093034",
+  "start_time": "2025-12-09T09:30:34.916192",
+  "end_time": "2025-12-09T10:16:33.531835",
+  "summary": {
+    "total_files": 16,
+    "success": 14,
+    "failed": 2,
+    "total_chunks": 407
+  },
+  "details": [
+    {
+      "file": "QCVN_01_2021_KIENTRUC_Quy_Hoach_Xay_Dung.pdf",
+      "status": "success",
+      "chunks": 231,
+      "coverage": 180.42138660130345,
+      "errors": []
+    },
+    {
+      "file": "QCVN_02_2022_KHAC_So_Lieu_Dieu_Kien_Tu_Nhien.pdf",
+      "status": "success",
+      "chunks": 22,
+      "coverage": 151.54416486660048,
+      "errors": []
+    },
+    {
+      "file": "QCVN_04_2021_KIENTRUC_Nha_Chung_Cu.pdf",
+      "status": "success",
+      "chunks": 62,
+      "coverage": 127.64769878435267,
+      "errors": []
+    },
+    {
+      "file": "QCVN_06_2022_PCCC_An_Toan_Chay.pdf",
+      "status": "success",
+      "chunks": 1,
+      "coverage": 77.83641160949868,
+      "errors": []
+    },
+    {
+      "file": "QCVN_06_2022_PCCC_SUA_DOI_1_2023.pdf",
+      "status": "success",
+      "chunks": 1,
+      "coverage": 17.272727272727273,
+      "errors": []
+    },
+    {
+      "file": "QCVN_10_2025_PCCC_Trang_bi_bo_tri_phuong_tien_PCCC.pdf",
+      "status": "success",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": []
+    },
+    {
+      "file": "TCVN_4451_2012_KIENTRUC_Nha_O_Nguyen_Tac_Thiet_Ke.pdf",
+      "status": "success",
+      "chunks": 43,
+      "coverage": 121.10918972332017,
+      "errors": []
+    },
+    {
+      "file": "LUAT_62_2020_PHAPLY_sua_doi_bo_sung_mot_so_dieu_cua_luat_xay_dung.pdf",
+      "status": "success",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": []
+    },
+    {
+      "file": "ND_06_2021_QLDA_Quan_ly_chat_luong_thi_cong_bao_tri_cong_trinh.pdf",
+      "status": "success",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": []
+    },
+    {
+      "file": "TT_02_2025_PHAPLY_Thong_Tu_BXD.pdf",
+      "status": "success",
+      "chunks": 1,
+      "coverage": 88.23529411764706,
+      "errors": []
+    },
+    {
+      "file": "TT_06_2021_QLDA_quy_dinh_ve_phan_cap_cong_trinh_xay_dung.pdf",
+      "status": "success",
+      "chunks": 1,
+      "coverage": 42.69662921348314,
+      "errors": []
+    },
+    {
+      "file": "TT_174_2021_QLDA_huong_dan_nd_06_2021_quan_ly_chat_luong_cong_trinh.pdf",
+      "status": "success",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": []
+    },
+    {
+      "file": "TT_24_2025_QLDA_sua_doi_tt_174_2021_tt_bqp.pdf",
+      "status": "success",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": []
+    },
+    {
+      "file": "DM Luat+ND+TT lq den lv DTXD_update_11-2025.doc",
+      "status": "failed",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": [
+        "All parsing strategies failed for DM Luat+ND+TT lq den lv DTXD_update_11-2025.doc. Errors: ['LlamaParseStrategy failed: LlamaParse returned no content', \"PyMuPDFStrategy failed: Failed to open file 'data\\\\\\\\documents\\\\\\\\DM Luat+ND+TT lq den lv DTXD_update_11-2025.doc'.\", \"GeminiVisionStrategy failed: Failed to open file 'data\\\\\\\\documents\\\\\\\\DM Luat+ND+TT lq den lv DTXD_update_11-2025.doc'.\"]"
+      ]
+    },
+    {
+      "file": "DM QC+QP+TC lq den lv DTXD_update_11-2025.doc",
+      "status": "failed",
+      "chunks": 0,
+      "coverage": 0.0,
+      "errors": [
+        "All parsing strategies failed for DM QC+QP+TC lq den lv DTXD_update_11-2025.doc. Errors: ['LlamaParseStrategy failed: LlamaParse returned no content', \"PyMuPDFStrategy failed: Failed to open file 'data\\\\\\\\documents\\\\\\\\DM QC+QP+TC lq den lv DTXD_update_11-2025.doc'.\", \"GeminiVisionStrategy failed: Failed to open file 'data\\\\\\\\documents\\\\\\\\DM QC+QP+TC lq den lv DTXD_update_11-2025.doc'.\"]"
+      ]
+    },
+    {
+      "file": "TT 79_2025_TT-BTC hướng dẫn việc cung cấp, đăng tải thông tin về đấu thầu và mẫu hồ sơ đấu thầu trên Hệ thống mạng đấu thầu quốc gia do Bộ trưởng Bộ Tài chính ban hành.pdf",
+      "status": "success",
+      "chunks": 45,
+      "coverage": 133.74369323915235,
+      "errors": []
+    }
+  ]
+}

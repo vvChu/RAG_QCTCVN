@@ -1,0 +1,68 @@
+# Docker Compose for CCBA RAG System
+# Run: docker-compose up -d
+
+version: "3.8"
+
+services:
+  # API Server
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: ccba-rag-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MILVUS_HOST=${MILVUS_HOST}
+      - MILVUS_PORT=${MILVUS_PORT}
+      - MILVUS_USER=${MILVUS_USER}
+      - MILVUS_PASSWORD=${MILVUS_PASSWORD}
+      - MILVUS_SECURE=${MILVUS_SECURE}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - LLAMA_CLOUD_API_KEY=${LLAMA_CLOUD_API_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config:ro
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/status" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Streamlit UI
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: ccba-rag-ui
+    command: [ "python", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0" ]
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  # Local Milvus (optional - for development)
+  milvus:
+    image: milvusdb/milvus:v2.3.12
+    container_name: milvus-standalone
+    environment:
+      - ETCD_USE_EMBED=true
+      - ETCD_DATA_DIR=/var/lib/milvus/etcd
+      - COMMON_STORAGETYPE=local
+    volumes:
+      - milvus_data:/var/lib/milvus
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    profiles:
+      - local # Only start with: docker-compose --profile local up
+
+volumes:
+  milvus_data:

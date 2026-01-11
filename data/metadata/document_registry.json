@@ -1,0 +1,147 @@
+{
+  "documents": [
+    {
+      "id": "QCVN_01-2021",
+      "filename": "2021-05-19_QCVN_01-2021-BXD_QuyHoachXayDung_v01.pdf",
+      "category": "QCVN",
+      "title_vi": "Quy chuẩn kỹ thuật quốc gia về quy hoạch xây dựng",
+      "title_en": "National Technical Regulation on Urban Planning",
+      "issued_date": "2021-05-19",
+      "effective_date": "2021-07-01",
+      "topics": [
+        "urban_planning",
+        "land_use",
+        "zoning",
+        "infrastructure"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/qcvn",
+      "issued_by": {
+        "type": "TT-BXD",
+        "number": "12/2019"
+      }
+    },
+    {
+      "id": "QCVN_04-2021",
+      "filename": "2021-05-19_QCVN_04-2021-BXD_Wwwthuvleiiphapluatvn_v01.pdf",
+      "category": "QCVN",
+      "title_vi": "Quy chuẩn kỹ thuật quốc gia về nhà chung cư",
+      "title_en": "National Technical Regulation on Apartment Buildings",
+      "issued_date": "2021-05-19",
+      "effective_date": "2021-07-01",
+      "topics": [
+        "apartments",
+        "residential",
+        "building_height",
+        "room_standards"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/qcvn",
+      "issued_by": {
+        "type": "TT-BXD",
+        "number": "12/2019"
+      }
+    },
+    {
+      "id": "QCVN_06-2022",
+      "filename": "2023-10-16_QCVN_06-2022-BXD__v01.docx",
+      "category": "QCVN",
+      "title_vi": "Quy chuẩn kỹ thuật quốc gia về an toàn cháy cho nhà và công trình",
+      "title_en": "National Technical Regulation on Fire Safety for Buildings",
+      "issued_date": "2022-11-30",
+      "effective_date": "2023-01-01",
+      "topics": [
+        "fire_safety",
+        "fire_distance",
+        "fire_prevention",
+        "emergency_exits"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/qcvn"
+    },
+    {
+      "id": "QCVN_06-2022-SD1",
+      "filename": "2023-10-16_QCVN_06-2022-SD1_FireSafetyAmendment_v1.docx",
+      "category": "QCVN",
+      "title_vi": "Sửa đổi bổ sung QCVN 06:2022 về an toàn cháy",
+      "title_en": "Amendment to QCVN 06:2022 on Fire Safety",
+      "issued_date": "2023-10-16",
+      "effective_date": "2023-12-01",
+      "topics": [
+        "fire_safety",
+        "amendments"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "amends": "QCVN_06-2022",
+      "directory": "data/documents/qcvn"
+    },
+    {
+      "id": "TCVN_4451-2012",
+      "filename": "2012-01-01_TCVN_4451-2012_NhaO_v01.pdf",
+      "category": "TCVN",
+      "title_vi": "Tiêu chuẩn quốc gia - Nhà ở - Nguyên tắc cơ bản",
+      "title_en": "National Standard - Residential Buildings - Basic Principles",
+      "issued_date": "2012-01-01",
+      "effective_date": "2012-03-01",
+      "topics": [
+        "residential",
+        "building_standards",
+        "building_height",
+        "room_standards"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/tcvn"
+    },
+    {
+      "id": "ND-CP_175-2024",
+      "filename": "2024-05-10_ND-CP_175-2024_ConstructionLaw_v1.pdf",
+      "category": "ND-CP",
+      "title_vi": "Nghị định về thi hành Luật Xây dựng - Quản lý hoạt động xây dựng",
+      "title_en": "Decree on Implementation of Construction Law - Construction Activity Management",
+      "issued_date": "2024-05-10",
+      "effective_date": "2024-07-01",
+      "topics": [
+        "construction_permits",
+        "construction_law",
+        "building_permits",
+        "procedures"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/nd-cp"
+    },
+    {
+      "id": "TT-BXD_02-2022",
+      "filename": "2022-01-01_TT-BXD_02-2022_Drainage_v1.pdf",
+      "category": "TT-BXD",
+      "title_vi": "Thông tư về hệ thống thoát nước trong công trình xây dựng",
+      "title_en": "Circular on Drainage Systems in Buildings",
+      "issued_date": "2022-01-01",
+      "effective_date": "2022-03-01",
+      "topics": [
+        "drainage",
+        "water_management",
+        "plumbing",
+        "rainwater"
+      ],
+      "status": "active",
+      "supersedes": null,
+      "directory": "data/documents/tt-bxd"
+    }
+  ],
+  "metadata": {
+    "total_documents": 7,
+    "categories": {
+      "QCVN": 4,
+      "TCVN": 1,
+      "ND-CP": 1,
+      "TT-BXD": 1
+    },
+    "last_updated": "2025-11-22T23:42:00+07:00"
+  }
+}

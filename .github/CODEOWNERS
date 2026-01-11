@@ -1,0 +1,25 @@
+# CODEOWNERS - Defines code ownership for PR reviews
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files
+* @vvChu
+
+# Core source code
+/src/ @vvChu
+
+# Configuration
+/config/ @vvChu
+*.yaml @vvChu
+*.yml @vvChu
+
+# Documentation
+/docs/ @vvChu
+*.md @vvChu
+
+# CI/CD and DevOps
+/.github/ @vvChu
+Dockerfile @vvChu
+docker-compose.yml @vvChu
+
+# Tests
+/tests/ @vvChu

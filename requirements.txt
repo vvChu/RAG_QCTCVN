@@ -1,0 +1,43 @@
+# Core RAG Dependencies
+FlagEmbedding>=1.2.0
+transformers>=4.35.0
+torch>=2.0.0
+pymilvus>=2.3.0
+
+# Gemini API
+google-genai>=0.2.0
+
+# Groq Fallback LLM
+groq>=0.9.0
+
+# PDF Processing
+pypdf2>=3.0.0
+pdfplumber>=0.10.0
+python-docx>=1.0.0
+pymupdf>=1.23.0
+llama-parse>=0.4.0
+
+# NLP & Text Processing
+nltk>=3.8.0
+underthesea>=1.3.0
+sentencepiece>=0.1.99
+
+# Utilities
+numpy>=1.24.0
+pandas>=2.0.0
+tqdm>=4.65.0
+
+# Evaluation
+scikit-learn>=1.3.0
+
+# Environment
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Optional: For better performance
+faiss-cpu>=1.7.4  # Alternative to Milvus for small datasets
+sentence-transformers>=2.2.0  # Additional embedding utilities
+
+# Testing
+pytest>=7.0.0

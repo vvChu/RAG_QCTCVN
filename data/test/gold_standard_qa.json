@@ -1,0 +1,135 @@
+[
+    {
+        "id": 1,
+        "question": "Khoảng cách phòng cháy giữa 2 tòa nhà là bao nhiêu?",
+        "category": "Fire Safety",
+        "expected_doc": "QCVN06_2022",
+        "expected_answer": "Khoảng cách an toàn phòng cháy chữa cháy giữa các nhà và công trình được quy định tại Bảng E.1, E.2 QCVN 06:2022/BXD. Tùy thuộc vào bậc chịu lửa và cấp nguy hiểm cháy, khoảng cách có thể từ 6m đến 15m."
+    },
+    {
+        "id": 3,
+        "question": "Thủ tục xin giấy phép xây dựng gồm những gì?",
+        "category": "Construction Permits",
+        "expected_doc": "175_2024_ND-CP",
+        "expected_answer": "Hồ sơ đề nghị cấp giấy phép xây dựng gồm: Đơn đề nghị cấp giấy phép xây dựng; Bản sao giấy tờ chứng minh quyền sử dụng đất; Bản vẽ thiết kế xây dựng;..."
+    },
+    {
+        "id": 4,
+        "question": "Quy định về diện tích phòng ngủ tối thiểu?",
+        "category": "Room Standards",
+        "expected_doc": "QCVN",
+        "expected_answer": "Diện tích tối thiểu của phòng ngủ trong nhà ở chung cư là 9m2."
+    },
+    {
+        "id": 5,
+        "question": "Yêu cầu về hệ thống thoát nước mưa trong nhà cao tầng?",
+        "category": "Drainage Systems",
+        "expected_doc": "09_2023_TT-BXD",
+        "expected_answer": "Hệ thống thoát nước mưa trên mái phải đảm bảo khả năng thoát nước với cường độ mưa tính toán và không được để nước mưa chảy tràn vào các khu vực khác."
+    },
+    {
+        "id": 6,
+        "question": "Chiều rộng tối thiểu của cầu thang thoát hiểm là bao nhiêu?",
+        "category": "Fire Safety",
+        "expected_doc": "QCVN",
+        "expected_answer": "Chiều rộng tối thiểu của cầu thang thoát hiểm phải đảm bảo 1,1m đối với nhà cao tầng."
+    },
+    {
+        "id": 7,
+        "question": "Khoảng cách an toàn từ đường dây điện cao thế đến nhà ở là bao nhiêu?",
+        "category": "Safety Standards",
+        "expected_doc": "TCVN",
+        "expected_answer": "Khoảng cách an toàn phụ thuộc vào điện áp của đường dây, tối thiểu 5m với đường dây 35kV."
+    },
+    {
+        "id": 8,
+        "question": "Yêu cầu về chiều cao lan can ban công trong chung cư?",
+        "category": "Building Standards",
+        "expected_doc": "QCVN04_2021",
+        "expected_answer": "Chiều cao lan can ban công phải đảm bảo tối thiểu 1,1m tính từ mặt sàn hoàn thiện."
+    },
+    {
+        "id": 9,
+        "question": "Diện tích tối thiểu cho một chỗ đỗ xe ô tô là bao nhiêu?",
+        "category": "Parking Standards",
+        "expected_doc": "QCVN",
+        "expected_answer": "Diện tích tối thiểu cho một chỗ đỗ xe ô tô con là 25m2 (5m x 2,5m)."
+    },
+    {
+        "id": 10,
+        "question": "Quy định về độ dốc tối đa của đường dốc xe lăn người khuyết tật?",
+        "category": "Accessibility",
+        "expected_doc": "QCVN",
+        "expected_answer": "Độ dốc tối đa của đường dốc dành cho xe lăn không được vượt quá 8%."
+    },
+    {
+        "id": 11,
+        "question": "Chiều cao tối thiểu của trần phòng làm việc là bao nhiêu?",
+        "category": "Room Standards",
+        "expected_doc": "TCVN_4451",
+        "expected_answer": "Chiều cao tối thiểu của trần phòng làm việc là 2,6m tính từ sàn hoàn thiện."
+    },
+    {
+        "id": 12,
+        "question": "Yêu cầu về số lượng thang máy trong nhà cao tầng?",
+        "category": "Building Standards",
+        "expected_doc": "QCVN",
+        "expected_answer": "Tòa nhà trên 10 tầng phải có tối thiểu 2 thang máy, trong đó có 1 thang máy phục vụ cứu hộ."
+    },
+    {
+        "id": 13,
+        "question": "Khoảng cách tối thiểu giữa hai cửa sổ đối diện nhau?",
+        "category": "Building Standards",
+        "expected_doc": "TCVN",
+        "expected_answer": "Khoảng cách tối thiểu giữa hai cửa sổ đối diện phải đảm bảo 10m để đảm bảo riêng tư."
+    },
+    {
+        "id": 14,
+        "question": "Độ cao tối đa của nhà ở liền kề trong khu đô thị?",
+        "category": "Urban Planning",
+        "expected_doc": "QCVN01_2021",
+        "expected_answer": "Độ cao tối đa của nhà ở liền kê phụ thuộc vào quy hoạch chi tiết, thường không quá 4 tầng."
+    },
+    {
+        "id": 15,
+        "question": "Yêu cầu về diện tích cửa sổ tối thiểu trong phòng ngủ?",
+        "category": "Room Standards",
+        "expected_doc": "TCVN",
+        "expected_answer": "Diện tích cửa sổ tối thiểu phải đảm bảo 1/6 diện tích sàn phòng để đảm bảo ánh sáng tự nhiên."
+    },
+    {
+        "id": 16,
+        "question": "Quy định về hệ thống chữa cháy tự động trong nhà cao tầng?",
+        "category": "Fire Safety",
+        "expected_doc": "QCVN06_2022",
+        "expected_answer": "Nhà cao tầng từ 17 tầng trở lên bắt buộc phải có hệ thống chữa cháy tự động bằng nước hoặc khí."
+    },
+    {
+        "id": 17,
+        "question": "Chiều rộng tối thiểu của hành lang chung trong chung cư?",
+        "category": "Building Standards",
+        "expected_doc": "QCVN04_2021",
+        "expected_answer": "Chiều rộng tối thiểu của hành lang chung là 1,2m để đảm bảo lưu thông."
+    },
+    {
+        "id": 18,
+        "question": "Yêu cầu về mật độ xây dựng trong khu đất ở?",
+        "category": "Urban Planning",
+        "expected_doc": "QCVN01_2021",
+        "expected_answer": "Mật độ xây dựng phụ thuộc vào quy hoạch, thường từ 30-60% diện tích lô đất."
+    },
+    {
+        "id": 19,
+        "question": "Quy định về hố ga thoát nước mưa trên đường phố?",
+        "category": "Drainage Systems",
+        "expected_doc": "02_2022_TT-BXD",
+        "expected_answer": "Hố ga thoát nước mưa phải được bố trí cách nhau không quá 50m trên đường phố."
+    },
+    {
+        "id": 20,
+        "question": "Chiều cao tối thiểu từ sàn đến trần trong nhà chung cư?",
+        "category": "Room Standards",
+        "expected_doc": "QCVN04_2021",
+        "expected_answer": "Chiều cao tối thiểu từ sàn đến trần trong căn hộ chung cư là 2,6m."
+    }
+]

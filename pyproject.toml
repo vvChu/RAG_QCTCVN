@@ -1,0 +1,102 @@
+[project]
+name = "ccba-rag"
+version = "2.0.0"
+description = "CCBA Expert RAG System for Vietnamese Construction Laws & BIM Standards"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+    { name = "CCBA Team" }
+]
+keywords = ["rag", "llm", "vietnamese", "construction", "bim", "legal"]
+
+dependencies = [
+    # Core RAG
+    "FlagEmbedding>=1.2.0",
+    "transformers>=4.35.0",
+    "torch>=2.0.0",
+    "pymilvus>=2.3.0",
+    
+    # LLM Providers
+    "google-genai>=0.2.0",
+    "groq>=0.9.0",
+    "openai>=1.0.0",  # For DeepSeek API compatibility
+    
+    # Document Processing
+    "pypdf2>=3.0.0",
+    "pdfplumber>=0.10.0",
+    "python-docx>=1.0.0",
+    "pymupdf>=1.23.0",
+    "llama-parse>=0.4.0",
+    
+    # NLP & Text Processing
+    "nltk>=3.8.0",
+    "underthesea>=1.3.0",
+    "sentencepiece>=0.1.99",
+    
+    # API Framework
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    
+    # Configuration
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.0",
+    
+    # Utilities
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "tqdm>=4.65.0",
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "nest-asyncio>=1.5.0",
+    
+    # Image processing (for PDF rendering)
+    "pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.0.0",
+]
+ui = [
+    "streamlit>=1.28.0",
+]
+eval = [
+    "scikit-learn>=1.3.0",
+    "ragas>=0.1.0",
+]
+
+[project.scripts]
+ccba = "entrypoint.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ccba_rag"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.ruff.isort]
+known-first-party = ["ccba_rag"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"

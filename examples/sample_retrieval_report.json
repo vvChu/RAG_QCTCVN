@@ -1,0 +1,382 @@
+[
+  {
+    "query": "Khoảng cách phòng cháy giữa 2 tòa nhà là bao nhiêu?",
+    "timings_ms": {
+      "embedding_ms": 675.0040054321289,
+      "hybrid_search_ms": 681.1275482177734,
+      "rerank_ms": 137096.9545841217,
+      "generation_ms": 6094.048976898193
+    },
+    "top_k": [
+      {
+        "rank": 1,
+        "hybrid_score": 0.9999999884009496,
+        "dense_score": 0.6815557479858398,
+        "sparse_score": 0.19248081743717194,
+        "rerank_score": 0.8533359169960022,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "Trong trường hợp cần bảo đảm khoảng cách giữa các nhà, công trình phục vụ công tác chữa cháy và cứu nạn cứu hộ thì khoảng cách giữa hai công trình phải bảo đảm các yêu cầu tương ứng, ngoài các quy định tại phụ lục này đố"
+      },
+      {
+        "rank": 2,
+        "hybrid_score": 0.6015309899203418,
+        "dense_score": 0.6360194087028503,
+        "sparse_score": 0.1647726595401764,
+        "rerank_score": 0.8196102976799011,
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7",
+        "snippet": "“CHÚ THÍCH 6: Không quy định khoảng cách giữa các nhà và công trình công cộng khi tổng diện tích đất xây dựng (gồm cả diện tích đất không xây dựng giữa chúng) không vượt quá diện tích tầng cho phép lớn nhất trong phạm vi"
+      },
+      {
+        "rank": 3,
+        "hybrid_score": 0.3777710329026278,
+        "dense_score": 0.6221265196800232,
+        "sparse_score": 0.1422734260559082,
+        "rerank_score": 0.5259805917739868,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "4.33.4  Cho phép không áp dụng các quy định tại 4.33.1 đến 4.33.3 đối với nhà từ ba tầng trở xuống hoặc chiều cao PCCC dưới 15 m, ga ra để xe nổi dạng hở, hoặc nhà thỏa mãn đồng thời các điều kiện nêu tại CHÚ THÍCH 6 (Bả"
+      },
+      {
+        "rank": 4,
+        "hybrid_score": 0.362084009306146,
+        "dense_score": 0.6215477585792542,
+        "sparse_score": 0.14046122133731842,
+        "rerank_score": 0.321658194065094,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "Trong những trường hợp cần thiết, khoảng cách từ mép gần nhà của đường xe chạy đến tường ngoài của nhà và công trình được tăng đến 60 m với điều kiện nhà và công trình này có các đường cụt đi vào, kèm theo bãi quay xe ch"
+      },
+      {
+        "rank": 5,
+        "hybrid_score": 0.14417035657838267,
+        "dense_score": 0.5992550253868103,
+        "sparse_score": 0.0,
+        "rerank_score": 0.22474047541618347,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "- Nếu một nhà đã có sẵn thì đường quy ước sẽ song song và cách mặt ngoài của nhà có sẵn một khoảng cách tương ứng với tổng diện tích mặt ngoài không được bảo vệ và giới hạn chịu lửa tường ngoài của nhà này (xem các bằng "
+      }
+    ],
+    "answer": "Error generating response: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "citations": [
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7"
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      }
+    ],
+    "model": "gemini-2.5-flash"
+  },
+  {
+    "query": "Chiều cao tối thiểu của tầng 1 là bao nhiêu?",
+    "timings_ms": {
+      "embedding_ms": 508.18681716918945,
+      "hybrid_search_ms": 588.4137153625488,
+      "rerank_ms": 132702.17323303223,
+      "generation_ms": 2517.4007415771484
+    },
+    "top_k": [
+      {
+        "rank": 1,
+        "hybrid_score": 0.3308996361169754,
+        "dense_score": 0.6312193870544434,
+        "sparse_score": 0.0,
+        "rerank_score": 0.23005564510822296,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "- 1,2 m - đối với nhà có số người trên tầng bất kỳ, trừ tầng một, lớn hơn 200 người;\n- 0,7 m - đối với cầu thang bộ dẫn đến các chỗ làm việc đơn lẻ;\n- 0,9 m - đối với tất cả các trường hợp còn lại.\n3.4.2  Độ dốc (góc ngh"
+      },
+      {
+        "rank": 2,
+        "hybrid_score": 0.8710453521333568,
+        "dense_score": 0.6483149528503418,
+        "sparse_score": 0.16572585701942444,
+        "rerank_score": 0.22087018191814423,
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7",
+        "snippet": "Trường hợp bố trí các công năng chính của bệnh viện (nhóm F1.1) vượt quá chiều cao PCCC 28 m (hoặc quá 9 tầng, nhưng tối đa 50 m), phải tuân thủ đồng thời các điều kiện bổ sung sau:\n- Bậc chịu lửa của nhà là bậc I;\n- Toà"
+      },
+      {
+        "rank": 3,
+        "hybrid_score": 0.18791597264959634,
+        "dense_score": 0.6134076714515686,
+        "sparse_score": 0.0,
+        "rerank_score": 0.2045479565858841,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "- Bán kính cong nhỏ nhất không nhỏ hơn 2 lần chiều rộng vế thang;\n- Chiều cao cổ bậc nằm trong khoảng từ 150 mm đến 190 mm;\n- Chiều rộng phía trong của mặt bậc (đo cách đầu nhỏ nhất của bậc 270 mm) không nhỏ hơn 220 mm;\n"
+      },
+      {
+        "rank": 4,
+        "hybrid_score": 0.7439631440586563,
+        "dense_score": 0.6522845029830933,
+        "sparse_score": 0.13996528089046478,
+        "rerank_score": 0.16619908809661865,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "A.1.2.3  Chiều cao các gian phòng tính từ mặt sàn đến mặt dưới của các bộ phận nhô ra phía dưới trần hoặc mái không được nhỏ hơn 2,2 m. Các lối đi có người qua lại thường xuyên và đường thoát nạn phải có chiều cao tính t"
+      },
+      {
+        "rank": 5,
+        "hybrid_score": 0.42306126473811434,
+        "dense_score": 0.6137188673019409,
+        "sparse_score": 0.1381313055753708,
+        "rerank_score": 0.15323568880558014,
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7",
+        "snippet": "Bãi bỏ điểm H.2.10.3.\nSửa đổi điểm H.2.11.1 như sau:\n- Bổ sung cụm từ “ (hoặc 9 tầng). Trường hợp cao quá 28 m (hoặc quá 9 tầng) phải tuân thủ các yêu cầu bổ sung như quy định tại H.2.9.1” vào sau cụm từ “28 m”.\nBổ sung "
+      }
+    ],
+    "answer": "Error generating response: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "citations": [
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7"
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "7"
+      }
+    ],
+    "model": "gemini-2.5-flash"
+  },
+  {
+    "query": "Thủ tục xin giấy phép xây dựng gồm những gì?",
+    "timings_ms": {
+      "embedding_ms": 318.8672065734863,
+      "hybrid_search_ms": 413.9409065246582,
+      "rerank_ms": 95462.29863166809,
+      "generation_ms": 4136.2550258636475
+    },
+    "top_k": [
+      {
+        "rank": 1,
+        "hybrid_score": 0.360280644781173,
+        "dense_score": 0.657293975353241,
+        "sparse_score": 0.12963728606700897,
+        "rerank_score": 0.8486791849136353,
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "98",
+        "clause": "2",
+        "snippet": "Điều 98: của Luật Xây dựng năm 2014.\nKhoản 2: Hồ sơ đề nghị điều chỉnh giấy phép xây dựng gồm:\na) Đơn đề nghị điều chỉnh giấy phép xây dựng theo Mẫu số 02 Phụ lục II Nghị định này;\nb) Bản chính giấy phép xây dựng kèm the"
+      },
+      {
+        "rank": 2,
+        "hybrid_score": 0.360280644781173,
+        "dense_score": 0.657293975353241,
+        "sparse_score": 0.12963728606700897,
+        "rerank_score": 0.8486791849136353,
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "98",
+        "clause": "2",
+        "snippet": "Điều 98: của Luật Xây dựng năm 2014.\nKhoản 2: Hồ sơ đề nghị điều chỉnh giấy phép xây dựng gồm:\na) Đơn đề nghị điều chỉnh giấy phép xây dựng theo Mẫu số 02 Phụ lục II Nghị định này;\nb) Bản chính giấy phép xây dựng kèm the"
+      },
+      {
+        "rank": 3,
+        "hybrid_score": 0.3946442955391936,
+        "dense_score": 0.6509050130844116,
+        "sparse_score": 0.13393016159534454,
+        "rerank_score": 0.8331736326217651,
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "7",
+        "clause": "2",
+        "snippet": "Điều 7: Nghị định này đến cơ quan cấp giấy phép\nKhoản 2: Hồ sơ đề nghị điều chỉnh giấy phép hoạt động xây dựng gồm:\na) Đơn đề nghị điều chỉnh giấy phép hoạt động xây dựng được quy định theo Mẫu số 8 Phụ lục III\nNghị định"
+      },
+      {
+        "rank": 4,
+        "hybrid_score": 0.3946442955391936,
+        "dense_score": 0.6509050130844116,
+        "sparse_score": 0.13393016159534454,
+        "rerank_score": 0.8331736326217651,
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "7",
+        "clause": "2",
+        "snippet": "Điều 7: Nghị định này đến cơ quan cấp giấy phép\nKhoản 2: Hồ sơ đề nghị điều chỉnh giấy phép hoạt động xây dựng gồm:\na) Đơn đề nghị điều chỉnh giấy phép hoạt động xây dựng được quy định theo Mẫu số 8 Phụ lục III\nNghị định"
+      },
+      {
+        "rank": 5,
+        "hybrid_score": 0.20258168506771856,
+        "dense_score": 0.6513521075248718,
+        "sparse_score": 0.0,
+        "rerank_score": 0.8036719560623169,
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "1",
+        "clause": "",
+        "snippet": "Điều 1: của Luật số 62/2020/QH14, kết quả thẩm định phải bổ sung nội dung yêu cầu chủ\nđầu tư gửi các thành phần hồ sơ tương ứng với hồ sơ đề nghị cấp giấy phép xây dựng theo quy định\ntại Nghị định này (không bao gồm Đơn "
+      }
+    ],
+    "answer": "Error generating response: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "citations": [
+      {
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "98",
+        "clause": "2"
+      },
+      {
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "98",
+        "clause": "2"
+      },
+      {
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "7",
+        "clause": "2"
+      },
+      {
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "7",
+        "clause": "2"
+      },
+      {
+        "document_name": "175_2024_ND-CP_609382",
+        "article": "1",
+        "clause": ""
+      }
+    ],
+    "model": "gemini-2.5-flash"
+  },
+  {
+    "query": "Yêu cầu về an toàn cháy đối với nhà cao tầng?",
+    "timings_ms": {
+      "embedding_ms": 357.7229976654053,
+      "hybrid_search_ms": 506.4985752105713,
+      "rerank_ms": 116053.93385887146,
+      "generation_ms": 7280.529022216797
+    },
+    "top_k": [
+      {
+        "rank": 1,
+        "hybrid_score": 0.47744311767420256,
+        "dense_score": 0.671076774597168,
+        "sparse_score": 0.18408805131912231,
+        "rerank_score": 0.9634909629821777,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "Sự cháy không được kiểm soát dẫn đến các thiệt hại về người và (hoặc) tài sản.\n1.4.52\nSự cháy\nPhản ứng oxy hóa tỏa nhiệt của một chất có kèm theo ít nhất một trong ba yếu tố ngọn lửa, phát sáng, sinh khói.\n1.4.53\nTài liệ"
+      },
+      {
+        "rank": 2,
+        "hybrid_score": 0.4010869332352673,
+        "dense_score": 0.6792868971824646,
+        "sparse_score": 0.1517496258020401,
+        "rerank_score": 0.9607309699058533,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "4.2  Nhà chung cư, nhà ký túc xá, công trình công cộng, nhà sản xuất và nhà kho phải bảo đảm các yêu cầu về phòng chống cháy của quy chuẩn này và các quy định trong các tiêu chuẩn thiết kế cho các loại công trình đó. Riê"
+      },
+      {
+        "rank": 3,
+        "hybrid_score": 0.4406828877783243,
+        "dense_score": 0.6640907526016235,
+        "sparse_score": 0.19057081639766693,
+        "rerank_score": 0.9600033164024353,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "Đối với một tầng nhà có từ hai công năng khác nhau trở lên, trong đó có một công năng chính chiếm tối thiểu 90 % diện tích sàn tầng và các công năng còn lại là phụ trợ cho công năng chính, cho phép không cần phân chia cá"
+      },
+      {
+        "rank": 4,
+        "hybrid_score": 0.9999999854133974,
+        "dense_score": 0.6926333904266357,
+        "sparse_score": 0.2486753910779953,
+        "rerank_score": 0.9427348375320435,
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": "",
+        "snippet": "a) Các yêu cầu chung về an toàn cháy cho gian phòng, khoang cháy, nhà và các công trình xây dựng (khoang cháy, nhà và các công trình xây dựng sau đây gọi chung là nhà):\nb) Phân loại kỹ thuật về cháy cho vật liệu xây dựng"
+      },
+      {
+        "rank": 5,
+        "hybrid_score": 0.37253964127675526,
+        "dense_score": 0.0,
+        "sparse_score": 0.22232167422771454,
+        "rerank_score": 0.9423359632492065,
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "1",
+        "snippet": "Điều 4: Các Bộ, cơ quan ngang bộ, cơ quan thuộc Chính phủ, Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Thông tư này./.\nKhoản 1: QUY ĐỊNH CHUNG\n"
+      }
+    ],
+    "answer": null,
+    "citations": [
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "QCVN06_2022_BXD_919647",
+        "article": "",
+        "clause": ""
+      },
+      {
+        "document_name": "09_2023_TT-BXD_583536",
+        "article": "4",
+        "clause": "1"
+      }
+    ],
+    "model": "gemini-2.5-flash"
+  }
+]

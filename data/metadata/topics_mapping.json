@@ -1,0 +1,142 @@
+{
+    "topics": {
+        "urban_planning": {
+            "vi": "Quy hoạch xây dựng",
+            "en": "Urban Planning",
+            "documents": [
+                "QCVN_01-2021"
+            ],
+            "keywords": [
+                "quy hoạch",
+                "đô thị",
+                "khu vực",
+                "phân khu"
+            ]
+        },
+        "fire_safety": {
+            "vi": "An toàn phòng cháy chữa cháy",
+            "en": "Fire Safety",
+            "documents": [
+                "QCVN_06-2022",
+                "QCVN_06-2022-SD1"
+            ],
+            "keywords": [
+                "phòng cháy",
+                "chữa cháy",
+                "khoảng cách",
+                "lối thoát"
+            ]
+        },
+        "residential": {
+            "vi": "Nhà ở",
+            "en": "Residential Buildings",
+            "documents": [
+                "TCVN_4451-2012",
+                "QCVN_04-20 21"
+            ],
+            "keywords": [
+                "nhà ở",
+                "chung cư",
+                "căn hộ",
+                "phòng ngủ"
+            ]
+        },
+        "building_height": {
+            "vi": "Chiều cao công trình",
+            "en": "Building Height",
+            "documents": [
+                "TCVN_4451-2012",
+                "QCVN_04-2021",
+                "QCVN_01-2021"
+            ],
+            "keywords": [
+                "chiều cao",
+                "tầng",
+                "độ cao"
+            ]
+        },
+        "room_standards": {
+            "vi": "Tiêu chuẩn phòng",
+            "en": "Room Standards",
+            "documents": [
+                "TCVN_4451-2012",
+                "QCVN_04-2021"
+            ],
+            "keywords": [
+                "phòng ngủ",
+                "phòng khách",
+                "diện tích",
+                "tối thiểu"
+            ]
+        },
+        "construction_permits": {
+            "vi": "Giấy phép xây dựng",
+            "en": "Construction Permits",
+            "documents": [
+                "ND-CP_175-2024"
+            ],
+            "keywords": [
+                "giấy phép",
+                "thủ tục",
+                "hồ sơ",
+                "xin phép"
+            ]
+        },
+        "drainage": {
+            "vi": "Hệ thống thoát nước",
+            "en": "Drainage Systems",
+            "documents": [
+                "TT-BXD_02-2022"
+            ],
+            "keywords": [
+                "thoát nước",
+                "nước mưa",
+                "thoát sàn",
+                "hố ga"
+            ]
+        },
+        "apartments": {
+            "vi": "Nhà chung cư",
+            "en": "Apartment Buildings",
+            "documents": [
+                "QCVN_04-2021"
+            ],
+            "keywords": [
+                "chung cư",
+                "căn hộ",
+                "tập thể",
+                "cao tầng"
+            ]
+        },
+        "fire_distance": {
+            "vi": "Khoảng cách phòng cháy",
+            "en": "Fire Safety Distance",
+            "documents": [
+                "QCVN_06-2022"
+            ],
+            "keywords": [
+                "khoảng cách",
+                "an toàn",
+                "giữa nhà",
+                "công trình"
+            ]
+        },
+        "construction_law": {
+            "vi": "Luật xây dựng",
+            "en": "Construction Law",
+            "documents": [
+                "ND-CP_175-2024"
+            ],
+            "keywords": [
+                "luật",
+                "quy định",
+                "nghị định",
+                "quản lý"
+            ]
+        }
+    },
+    "metadata": {
+        "total_topics": 10,
+        "last_updated": "2025-11-22T23:42:00+07:00"
+    }
+}

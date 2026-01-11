@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Khoảng cách phòng cháy chống cháy tối thiểu giữa các nhà ở là bao nhiêu?",
+    "expected_doc": "QCVN_06_2022_PCCC",
+    "answer": "Khoảng cách này phụ thuộc vào bậc chịu lửa. Ví dụ giữa hai nhà bậc chịu lửa I, II là 6m."
+  },
+  {
+    "question": "Chiều cao thông thủy tối thiểu của phòng ở trong nhà chung cư?",
+    "expected_doc": "QCVN_04_2021_KIENTRUC_Nha_Chung_Cu",
+    "answer": "Không được nhỏ hơn 2,6 m."
+  },
+  {
+    "question": "Nguyên tắc thiết kế nhà ở theo TCVN 4451:2012 là gì?",
+    "expected_doc": "TCVN_4451_2012",
+    "answer": "Đảm bảo an toàn, bền vững, tiện nghi..."
+  },
+  {
+    "question": "Diện tích tối thiểu của căn hộ chung cư nhà ở xã hội là bao nhiêu?",
+    "expected_doc": "QCVN_04_2021_KIENTRUC_Nha_Chung_Cu",
+    "answer": "25 m2"
+  },
+  {
+    "question": "Yêu cầu về lối thoát nạn cho nhà cao tầng?",
+    "expected_doc": "QCVN_06_2022_PCCC",
+    "answer": "Phải có ít nhất 2 lối thoát nạn."
+  }
+]

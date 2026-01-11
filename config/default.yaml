@@ -1,0 +1,69 @@
+# =============================================================================
+# CCBA RAG System - Default Configuration
+# =============================================================================
+# This file contains default values for all configurable parameters.
+# Environment variables take precedence over values defined here.
+
+embedding:
+  model_name: "BAAI/bge-m3"
+  max_length: 1024
+  batch_size: 64
+  use_fp16: false
+  embedding_dim: 1024
+
+retrieval:
+  # Stage 1: Hybrid Retrieval
+  top_k: 100
+  dense_weight: 0.5
+  sparse_weight: 0.5
+  
+  # Stage 2: Reranking
+  enable_reranker: false  # Set to true for higher accuracy (slower)
+  reranker_model: "BAAI/bge-reranker-v2-m3"
+  reranker_batch_size: 64
+  top_n: 5
+  
+  # HNSW Index Parameters
+  hnsw:
+    m: 8
+    ef_construction: 100
+    ef_search: 32
+
+generation:
+  primary_provider: "gemini"
+  fallback_provider: "groq"
+  temperature: 0.1
+  max_tokens: 1024
+  
+  models:
+    gemini: "gemini-2.0-flash"
+    groq: "llama-3.3-70b-versatile"
+    deepseek: "deepseek-chat"
+
+ingestion:
+  # Chunking
+  max_chunk_chars: 2000
+  min_chunk_chars: 100
+  overlap_chars: 200
+  
+  # LlamaParse
+  use_llamaparse_for_scanned: true
+  llamaparse_result_type: "markdown"
+  
+  # Supported file types
+  supported_extensions:
+    - ".pdf"
+    - ".docx"
+    - ".doc"
+
+vectorstore:
+  type: "milvus"
+  collection_name: "legal_documents"
+  
+  # Schema field limits
+  max_text_length: 65535
+  max_metadata_length: 500
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
