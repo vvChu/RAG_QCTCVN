@@ -5,7 +5,7 @@ Stage 1: Hybrid Search (Dense + Sparse with RRF)
 Stage 2: Reranking (optional, for higher accuracy)
 """
 
-from typing import List, Dict, Tuple, Optional, Any
+from typing import Optional, Any
 import time
 
 from ccba_rag.core.settings import settings

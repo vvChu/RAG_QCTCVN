@@ -6,7 +6,7 @@ Supports multiple reranker backends:
 - CrossEncoderReranker: Full cross-encoder (slower, more accurate)
 """
 
-from typing import List, Dict, Tuple, Optional
+from typing import Optional
 import time
 
 from ccba_rag.core.base import BaseReranker
@@ -19,19 +19,19 @@ logger = get_logger(__name__)
 class BGEM3Reranker(BaseReranker):
     """
     Lightweight reranker using FlagReranker from FlagEmbedding.
-    
+
     Faster than full cross-encoders, suitable for CPU inference.
     """
-    
+
     _instance: Optional['BGEM3Reranker'] = None
     _model = None
-    
+
     def __new__(cls, *args, **kwargs):
         """Singleton pattern."""
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
-    
+
     def __init__(
         self,
         model_name: Optional[str] = None,
@@ -40,7 +40,7 @@ class BGEM3Reranker(BaseReranker):
     ):
         """
         Initialize BGE-M3 Reranker.
-        
+
         Args:
             model_name: Reranker model name
             use_fp16: Use FP16 precision
@@ -48,16 +48,16 @@ class BGEM3Reranker(BaseReranker):
         """
         if self._model is not None:
             return
-        
+
         self.model_name = model_name or settings.reranker_model_name
         self.use_fp16 = use_fp16
         self.batch_size = batch_size or settings.reranker_batch_size
-        
+
         logger.info(f"Loading BGEM3Reranker: {self.model_name}")
-        
+
         try:
             from FlagEmbedding import FlagReranker
-            
+
             self._model = FlagReranker(
                 self.model_name,
                 use_fp16=self.use_fp16
@@ -66,11 +66,11 @@ class BGEM3Reranker(BaseReranker):
         except Exception as e:
             logger.error(f"Failed to load reranker: {e}")
             raise
-    
+
     @property
     def model(self):
         return self._model
-    
+
     def rerank(
         self,
         query: str,
