@@ -5,7 +5,7 @@ Implements Dense + Sparse embeddings for semantic and lexical search.
 CPU-optimized with configurable sequence length and batch size.
 """
 
-from typing import Optional, Union
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 from tqdm import tqdm
@@ -94,7 +94,7 @@ class BGEEmbedder(BaseEmbedder):
 
     def encode_queries(
         self,
-        queries: Union[str, List[str]],
+        queries: str | List[str],
         batch_size: Optional[int] = None
     ) -> Dict[str, np.ndarray]:
         """
@@ -128,7 +128,7 @@ class BGEEmbedder(BaseEmbedder):
 
     def encode_documents(
         self,
-        documents: Union[str, List[str]],
+        documents: str | List[str],
         batch_size: Optional[int] = None
     ) -> Dict[str, np.ndarray]:
         """

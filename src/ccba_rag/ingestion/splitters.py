@@ -11,11 +11,6 @@ from typing import Dict, List, Optional
 from ccba_rag.core.constants import (
     ARTICLE_PATTERN,
     CHAPTER_PATTERN,
-    CLAUSE_PATTERN,
-    MAX_CHUNK_CHARS,
-    MIN_CHUNK_CHARS,
-    SECTION_LEVEL_1_PATTERN,
-    SECTION_LEVEL_2_PATTERN,
 )
 from ccba_rag.core.models import Chunk, ChunkLevel
 from ccba_rag.core.settings import settings

@@ -9,14 +9,12 @@ from typing import Any, Dict, List, Optional
 
 import yaml
 
-from ccba_rag.core.settings import settings
-
 
 def _load_prompts() -> Dict[str, str]:
     """Load prompts from YAML file."""
     config_path = Path(__file__).parent.parent.parent.parent / "config" / "prompts.yaml"
     if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(config_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     # Fallback to built-in prompts
     return DEFAULT_PROMPTS

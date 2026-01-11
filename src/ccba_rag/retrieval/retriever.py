@@ -6,7 +6,7 @@ Stage 2: Reranking (optional, for higher accuracy)
 """
 
 import time
-from typing import Any, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger

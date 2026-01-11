@@ -1,7 +1,6 @@
-import base64
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict
 
 import fitz
 

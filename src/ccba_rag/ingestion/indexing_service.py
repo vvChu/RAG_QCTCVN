@@ -1,8 +1,6 @@
-import asyncio
-import json
 from datetime import datetime
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 
 from ccba_rag.core.constants import SUPPORTED_EXTENSIONS
 from ccba_rag.ingestion.parsers import DocumentParser

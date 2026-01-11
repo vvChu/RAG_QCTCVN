@@ -8,7 +8,6 @@ Priority order:
 4. Hardcoded defaults (lowest)
 """
 
-import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -22,7 +21,7 @@ def load_yaml_config() -> Dict[str, Any]:
     """Load configuration from YAML file."""
     config_path = Path(__file__).parent.parent.parent.parent / "config" / "default.yaml"
     if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(config_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     return {}
 
@@ -31,7 +30,7 @@ def load_prompts_config() -> Dict[str, str]:
     """Load prompts from YAML file."""
     config_path = Path(__file__).parent.parent.parent.parent / "config" / "prompts.yaml"
     if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(config_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     return {}
 
@@ -133,7 +132,7 @@ class Settings(BaseSettings):
         return load_prompts_config()
 
 
-@lru_cache()
+@lru_cache
 def get_settings() -> Settings:
     """Get cached settings instance."""
     return Settings()

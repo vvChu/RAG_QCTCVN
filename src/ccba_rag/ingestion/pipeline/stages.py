@@ -100,7 +100,7 @@ class EmbedStage(PipelineStage):
             lambda: self.embedder.encode_all(texts, show_progress=False)
         )
 
-        logger.info(f"Pipeline: Embedding complete.")
+        logger.info("Pipeline: Embedding complete.")
 
         for chunk, d, s in zip(chunks, dense, sparse):
             chunk.dense_vector = d
@@ -130,7 +130,7 @@ class VerifyStage(PipelineStage):
 
     async def run(self, context: PipelineContext, chunks: List[Any]) -> Any:
         stats = context.stats
-        total_chars = stats.get('total_chars', 0)
+        stats.get('total_chars', 0)
         # Re-calculate or get from upstream?
         # Ideally parsing stage sets total_chars.
         # But LoadStage does context.stats['pages']

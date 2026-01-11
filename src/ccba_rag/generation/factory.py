@@ -4,10 +4,8 @@ Generator Factory - Creates LLM generators by provider name
 Supports: gemini, groq, deepseek
 """
 
-from typing import Optional
 
 from ccba_rag.core.base import BaseGenerator
-from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
 
 logger = get_logger(__name__)

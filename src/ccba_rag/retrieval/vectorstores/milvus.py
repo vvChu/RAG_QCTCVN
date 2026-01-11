@@ -6,7 +6,7 @@ Uses Reciprocal Rank Fusion (RRF) for combining search results.
 """
 
 import json
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 from pymilvus import Collection, CollectionSchema, DataType, FieldSchema, connections, utility
 
@@ -333,6 +333,6 @@ class MilvusStore(BaseVectorDB):
 
         self.collection.load()
         expr = f'document_name == "{document_name}"'
-        result = self.collection.delete(expr)
+        self.collection.delete(expr)
         logger.info(f"Deleted chunks for document: {document_name}")
         return 1  # Milvus doesn't return count directly

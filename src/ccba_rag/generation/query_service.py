@@ -6,8 +6,7 @@ Provides a higher-level interface for query execution.
 
 import hashlib
 import time
-from functools import lru_cache
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 from ccba_rag.utils.logging import get_logger
 

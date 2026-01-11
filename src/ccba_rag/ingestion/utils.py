@@ -1,6 +1,5 @@
 import hashlib
 import re
-from typing import Optional
 
 
 def normalize_document_code(code: str) -> str:
