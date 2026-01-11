@@ -1,7 +1,9 @@
 
-import requests
 import time
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List
+
+import requests
+
 from ccba_rag.utils.logging import get_logger
 
 logger = get_logger(__name__)

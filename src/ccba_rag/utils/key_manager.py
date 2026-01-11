@@ -34,7 +34,7 @@ class KeyManager:
         self._iterator = cycle(self._keys)
         logger.info(f"Loaded {len(self._keys)} keys for {self.key_env_var}")
 
-    def get_keys(self) -> List[str]:
+    def get_keys(self) -> list[str]:
         """Return all available keys."""
         return self._keys
 
