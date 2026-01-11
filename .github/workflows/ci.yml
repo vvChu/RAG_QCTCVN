@@ -47,6 +47,8 @@ jobs:
           pytest tests/test_core.py tests/test_generators.py -v --tb=short
         env:
           PYTHONPATH: src
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       
       - name: Upload coverage
         uses: codecov/codecov-action@v3
