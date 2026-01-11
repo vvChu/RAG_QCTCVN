@@ -22,29 +22,29 @@ class IngestionReport:
     start_time: str = field(default_factory=lambda: datetime.now().isoformat())
     end_time: str = None
     files: List[FileReport] = field(default_factory=list)
-    
+
     @property
     def total_files(self) -> int:
         return len(self.files)
-    
+
     @property
     def success_count(self) -> int:
         return sum(1 for f in self.files if f.status == "success")
-        
+
     @property
     def failure_count(self) -> int:
         return sum(1 for f in self.files if f.status == "failed")
-        
+
     @property
     def total_chunks(self) -> int:
         return sum(f.chunks_indexed for f in self.files)
-        
+
     def add_result(self, context: Any):
         """Add result from PipelineContext."""
         status = "success" if not context.errors else "failed"
         if not context.metadata and not context.errors:
              status = "skipped"
-             
+
         report = FileReport(
             file_name=Path(context.file_path).name,
             status=status,
@@ -54,7 +54,7 @@ class IngestionReport:
             stats=context.stats
         )
         self.files.append(report)
-        
+
     def save(self, output_path: str):
         """Save report to JSON."""
         data = {
@@ -78,6 +78,6 @@ class IngestionReport:
                 for f in self.files
             ]
         }
-        
+
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)

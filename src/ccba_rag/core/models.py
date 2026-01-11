@@ -33,7 +33,7 @@ class Document(BaseModel):
     file_path: str
     type: DocumentType
     metadata: Dict[str, Any] = Field(default_factory=dict)
-    
+
     class Config:
         frozen = True
 
@@ -41,7 +41,7 @@ class Document(BaseModel):
 class Chunk(BaseModel):
     """
     Represents a processed text chunk ready for indexing.
-    
+
     This is the primary data structure flowing through the pipeline.
     """
     id: str
@@ -49,29 +49,29 @@ class Chunk(BaseModel):
     document_name: str
     text: str
     page_number: int = 1
-    
+
     # Structural metadata (Vietnamese legal documents)
     chapter: Optional[str] = None
     article: Optional[str] = None
     clause: Optional[str] = None
-    
+
     # Document relationship metadata (extracted from content)
     document_code: Optional[str] = None  # e.g., "QCVN 06:2022/BXD"
     document_type: Optional[str] = None  # "original", "amendment"
     amendment_number: Optional[str] = None  # e.g., "1:2023"
     amends_document: Optional[str] = None  # Document being amended
-    
+
     # Hierarchical fields
     parent_id: Optional[str] = None
     level: ChunkLevel = ChunkLevel.CLAUSE
     full_context: Optional[str] = None  # Breadcrumb: "Chương I > Điều 5 > Khoản 1"
-    
+
     # Layout fields (for PDF rendering)
     bbox: Optional[List[float]] = None  # [x0, y0, x1, y1]
-    
+
     # Token stats
     token_count: int = 0
-    
+
     # Vectors (populated by embedder)
     dense_vector: Optional[List[float]] = None
     sparse_vector: Optional[Dict[int, float]] = None
@@ -86,7 +86,7 @@ class Chunk(BaseModel):
         if self.clause:
             parts.append(f"Khoản {self.clause}")
         return f"[{' - '.join(parts)}]"
-    
+
     def to_context_dict(self) -> Dict[str, Any]:
         """Convert to dict format expected by generators."""
         return {
@@ -107,7 +107,7 @@ class RetrievalResult(BaseModel):
     chunk: Chunk
     score: float
     rank: int = 0
-    
+
     class Config:
         arbitrary_types_allowed = True
 
@@ -119,10 +119,10 @@ class GenerationStats(BaseModel):
     reranking_ms: float = 0.0
     generation_ms: float = 0.0
     total_ms: float = 0.0
-    
+
     candidates_count: int = 0
     final_count: int = 0
-    
+
     primary_model: Optional[str] = None
     fallback_model: Optional[str] = None
     used_fallback: bool = False
@@ -135,7 +135,7 @@ class RAGResponse(BaseModel):
     contexts: List[Dict[str, Any]] = Field(default_factory=list)
     stats: GenerationStats = Field(default_factory=GenerationStats)
     prompt: Optional[str] = None
-    
+
     # For verification
     faithfulness_score: Optional[float] = None
     faithfulness_verdict: Optional[str] = None

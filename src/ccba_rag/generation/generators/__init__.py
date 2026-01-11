@@ -6,6 +6,6 @@ from ccba_rag.generation.generators.deepseek import DeepSeekGenerator
 
 __all__ = [
     "GeminiGenerator",
-    "GroqGenerator", 
+    "GroqGenerator",
     "DeepSeekGenerator",
 ]

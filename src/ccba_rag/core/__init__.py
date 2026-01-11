@@ -6,7 +6,7 @@ from ccba_rag.core.settings import settings
 
 __all__ = [
     "BaseVectorDB",
-    "BaseEmbedder", 
+    "BaseEmbedder",
     "BaseReranker",
     "BaseGenerator",
     "Chunk",

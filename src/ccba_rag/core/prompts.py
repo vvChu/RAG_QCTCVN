@@ -66,47 +66,47 @@ class PromptManager:
     """
     Manages prompt templates and formatting for RAG generation.
     """
-    
+
     def __init__(self):
         self._prompts = _load_prompts()
-    
+
     @property
     def system_instruction(self) -> str:
         """Get the system instruction prompt."""
         return self._prompts.get("system_instruction", DEFAULT_PROMPTS["system_instruction"])
-    
+
     @property
     def rag_template(self) -> str:
         """Get the RAG prompt template."""
         return self._prompts.get("rag_prompt_template", DEFAULT_PROMPTS["rag_prompt_template"])
-    
+
     @property
     def context_format(self) -> str:
         """Get the context formatting template."""
         return self._prompts.get("context_format", DEFAULT_PROMPTS["context_format"])
-    
+
     def format_contexts(self, contexts: List[Dict[str, Any]]) -> str:
         """
         Format retrieved contexts into a string for the prompt.
-        
+
         Args:
             contexts: List of context dicts with keys:
                 - text: Content text
                 - document_name: Document name
                 - article: Article number (optional)
                 - rerank_score or retrieval_score: Relevance score
-        
+
         Returns:
             Formatted contexts string
         """
         if not contexts:
             return "Không có ngữ cảnh liên quan được tìm thấy."
-        
+
         formatted_parts = []
         for i, ctx in enumerate(contexts, 1):
             # Get score (prefer rerank_score over retrieval_score)
             score = ctx.get("rerank_score", ctx.get("retrieval_score", 0.0))
-            
+
             # Build article reference
             article_parts = []
             if ctx.get("article"):
@@ -114,7 +114,7 @@ class PromptManager:
             if ctx.get("clause"):
                 article_parts.append(f"Khoản {ctx['clause']}")
             article_ref = ", ".join(article_parts) if article_parts else "N/A"
-            
+
             # Format using template
             formatted = self.context_format.format(
                 rank=i,
@@ -124,9 +124,9 @@ class PromptManager:
                 text=ctx.get("text", "")[:2000]  # Truncate for safety
             )
             formatted_parts.append(formatted)
-        
+
         return "\n\n".join(formatted_parts)
-    
+
     def build_rag_prompt(
         self,
         query: str,
@@ -135,23 +135,23 @@ class PromptManager:
     ) -> str:
         """
         Build the full RAG prompt for generation.
-        
+
         Args:
             query: User question
             contexts: Retrieved contexts
             history: Optional conversation history
-        
+
         Returns:
             Complete prompt string
         """
         formatted_contexts = self.format_contexts(contexts)
-        
+
         prompt = self.rag_template.format(
             system_instruction=self.system_instruction,
             contexts=formatted_contexts,
             query=query
         )
-        
+
         # Add conversation history if provided
         if history:
             history_text = "\n[CONVERSATION HISTORY]\n"
@@ -160,7 +160,7 @@ class PromptManager:
                 content = msg.get("content", "")
                 history_text += f"{role.upper()}: {content}\n"
             prompt = history_text + "\n" + prompt
-        
+
         return prompt
 
 

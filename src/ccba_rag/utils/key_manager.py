@@ -19,18 +19,18 @@ class KeyManager:
         self._keys: list[str] = []
         self._iterator = None
         self._load_keys()
-        
+
     def _load_keys(self):
         """Load keys from environment or settings."""
         # Get raw string
         keys_str = os.getenv(self.key_env_var) or getattr(settings, self.setting_attr, "") or ""
-        
+
         # Parse comma-separated keys
         self._keys = [k.strip() for k in keys_str.split(",") if k.strip()]
-        
+
         if not self._keys:
             logger.warning(f"No API keys found for {self.key_env_var}")
-            
+
         self._iterator = cycle(self._keys)
         logger.info(f"Loaded {len(self._keys)} keys for {self.key_env_var}")
 

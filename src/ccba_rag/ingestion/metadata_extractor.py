@@ -28,11 +28,11 @@ class DocumentMetadata:
     references: List[str] = None  # Referenced documents
     effective_date: Optional[str] = None  # Effective date
     issuing_body: Optional[str] = None  # BXD, BNNPTNT, etc.
-    
+
     def __post_init__(self):
         if self.references is None:
             self.references = []
-    
+
     def to_dict(self) -> dict:
         return {
             'document_code': self.document_code,
@@ -49,10 +49,10 @@ class DocumentMetadata:
 class DocumentMetadataExtractor:
     """
     Extract document metadata from Vietnamese legal document content.
-    
+
     Uses regex patterns first for speed, falls back to LLM for complex cases.
     """
-    
+
     # Regex patterns for Vietnamese legal documents
     PATTERNS = {
         # QCVN 06:2022/BXD or TCVN 4451:2012
@@ -60,69 +60,69 @@ class DocumentMetadataExtractor:
             r'(QCVN|TCVN)\s*(\d+)\s*[:\-]\s*(\d{4})(?:/(\w+))?',
             re.IGNORECASE
         ),
-        
+
         # Sửa đổi 1:2023 của QCVN 06:2022/BXD
         'amendment': re.compile(
             r'[Ss]ửa\s+đổi\s+(\d+)\s*[:\-]\s*(\d{4})',
             re.IGNORECASE
         ),
-        
+
         # "của QCVN XX:YYYY" - document being amended
         'amends': re.compile(
             r'(?:của|cho)\s+(QCVN|TCVN)\s*(\d+)\s*[:\-]\s*(\d{4})(?:/(\w+))?',
             re.IGNORECASE
         ),
-        
+
         # Thay thế QCVN XX:YYYY
         'replaces': re.compile(
             r'[Tt]hay\s+thế\s+(QCVN|TCVN)\s*(\d+)\s*[:\-]\s*(\d{4})',
             re.IGNORECASE
         ),
-        
+
         # Ban hành theo Quyết định số XX/YYYY/QD-BXD
         'issued_by': re.compile(
             r'[Qq]uyết\s+định\s+số\s*([\d/\-]+[A-Z\-]+)',
             re.IGNORECASE
         ),
-        
+
         # Có hiệu lực từ ngày DD/MM/YYYY or DD-MM-YYYY
         'effective_date': re.compile(
             r'[Hh]iệu\s+lực\s+(?:từ\s+ngày|kể\s+từ)\s*(\d{1,2}[/\-]\d{1,2}[/\-]\d{4})',
             re.IGNORECASE
         ),
-        
+
         # References: theo TCVN XXXX, căn cứ QCVN XX
         'references': re.compile(
             r'(?:theo|căn\s+cứ|tham\s+chiếu)\s+((?:QCVN|TCVN)\s*\d+\s*[:\-]\s*\d{4})',
             re.IGNORECASE
         ),
     }
-    
+
     def __init__(self, use_llm_fallback: bool = True):
         """
         Initialize extractor.
-        
+
         Args:
             use_llm_fallback: Use LLM for complex cases when regex fails
         """
         self.use_llm_fallback = use_llm_fallback
-    
+
     def extract(self, text: str, filename: str = "") -> DocumentMetadata:
         """
         Extract metadata from document text.
-        
+
         Args:
             text: Full document text (or first ~2000 chars for efficiency)
             filename: Original filename for additional hints
-            
+
         Returns:
             DocumentMetadata object
         """
         # Use first 3000 chars for metadata extraction
         header_text = text[:3000] if len(text) > 3000 else text
-        
+
         metadata = DocumentMetadata()
-        
+
         # 1. Extract document code
         code_match = self.PATTERNS['document_code'].search(header_text)
         if code_match:
@@ -130,14 +130,14 @@ class DocumentMetadataExtractor:
             number = code_match.group(2)
             year = code_match.group(3)
             body = code_match.group(4) or ""
-            
+
             if body:
                 metadata.document_code = f"{doc_type} {number}:{year}/{body}"
             else:
                 metadata.document_code = f"{doc_type} {number}:{year}"
-            
+
             metadata.issuing_body = body
-        
+
         # 2. Check if it's an amendment
         amend_match = self.PATTERNS['amendment'].search(header_text)
         if amend_match:
@@ -145,7 +145,7 @@ class DocumentMetadataExtractor:
             amend_num = amend_match.group(1)
             amend_year = amend_match.group(2)
             metadata.amendment_number = f"{amend_num}:{amend_year}"
-            
+
             # Find what document is being amended
             amends_match = self.PATTERNS['amends'].search(header_text)
             if amends_match:
@@ -153,12 +153,12 @@ class DocumentMetadataExtractor:
                 number = amends_match.group(2)
                 year = amends_match.group(3)
                 body = amends_match.group(4) or ""
-                
+
                 if body:
                     metadata.amends_document = f"{doc_type} {number}:{year}/{body}"
                 else:
                     metadata.amends_document = f"{doc_type} {number}:{year}"
-        
+
         # 3. Check if it replaces another document
         replaces_match = self.PATTERNS['replaces'].search(header_text)
         if replaces_match:
@@ -166,23 +166,23 @@ class DocumentMetadataExtractor:
             number = replaces_match.group(2)
             year = replaces_match.group(3)
             metadata.replaces_document = f"{doc_type} {number}:{year}"
-        
+
         # 4. Extract effective date
         date_match = self.PATTERNS['effective_date'].search(header_text)
         if date_match:
             metadata.effective_date = date_match.group(1)
-        
+
         # 5. Extract references
         references = self.PATTERNS['references'].findall(header_text)
         if references:
             metadata.references = list(set(references))
-        
+
         # 6. If incomplete and LLM enabled, use LLM fallback
         if self.use_llm_fallback and not metadata.document_code:
             llm_metadata = self._extract_with_llm(header_text)
             if llm_metadata:
                 metadata = self._merge_metadata(metadata, llm_metadata)
-        
+
         # Log extraction result
         if metadata.document_code:
             logger.info(f"Extracted metadata: {metadata.document_code} ({metadata.document_type})")
@@ -190,14 +190,14 @@ class DocumentMetadataExtractor:
                 logger.info(f"  └─ Amends: {metadata.amends_document}")
         else:
             logger.warning(f"Could not extract document code from: {filename}")
-        
+
         return metadata
-    
+
     def _extract_with_llm(self, text: str) -> Optional[DocumentMetadata]:
         """Use LLM to extract metadata when regex fails."""
         try:
             from ccba_rag.generation.factory import create_generator
-            
+
             prompt = """Phân tích đoạn văn bản quy chuẩn/tiêu chuẩn Việt Nam và trích xuất thông tin sau:
 
 1. document_code: Mã văn bản (VD: "QCVN 06:2022/BXD" hoặc "TCVN 4451:2012")
@@ -213,14 +213,14 @@ Văn bản:
 Trả về CHÍNH XÁC JSON format sau (không giải thích):
 {{"document_code": "...", "document_type": "...", "amendment_number": "...", "amends_document": "..."}}
 """
-            
+
             generator = create_generator("groq")  # Use fast model
             response = generator.generate(
                 prompt.format(text=text[:1500]),
                 max_tokens=200,
                 temperature=0
             )
-            
+
             # Parse JSON response
             import json
             # Try to find JSON in response
@@ -233,12 +233,12 @@ Trả về CHÍNH XÁC JSON format sau (không giải thích):
                     amendment_number=data.get('amendment_number'),
                     amends_document=data.get('amends_document')
                 )
-        
+
         except Exception as e:
             logger.warning(f"LLM extraction failed: {e}")
-        
+
         return None
-    
+
     def _merge_metadata(
         self,
         primary: DocumentMetadata,

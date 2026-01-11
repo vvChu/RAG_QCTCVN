@@ -19,28 +19,28 @@ def create_generator(
 ) -> BaseGenerator:
     """
     Create a generator instance by provider name.
-    
+
     Args:
         provider: One of 'gemini', 'groq', 'deepseek'
         **kwargs: Additional arguments passed to generator constructor
-        
+
     Returns:
         Configured generator instance
     """
     provider = provider.lower()
-    
+
     if provider == "gemini":
         from ccba_rag.generation.generators.gemini import GeminiGenerator
         return GeminiGenerator(**kwargs)
-    
+
     elif provider == "groq":
         from ccba_rag.generation.generators.groq import GroqGenerator
         return GroqGenerator(**kwargs)
-    
+
     elif provider == "deepseek":
         from ccba_rag.generation.generators.deepseek import DeepSeekGenerator
         return DeepSeekGenerator(**kwargs)
-    
+
     else:
         raise ValueError(f"Unknown provider: {provider}. Supported: gemini, groq, deepseek")
 
@@ -51,22 +51,22 @@ def create_fallback_generator(
 ) -> tuple:
     """
     Create primary and fallback generator pair.
-    
+
     Args:
         primary_provider: Primary generator provider
         fallback_provider: Fallback generator provider
-        
+
     Returns:
         Tuple of (primary_generator, fallback_generator)
     """
     primary = create_generator(primary_provider)
-    
+
     try:
         fallback = create_generator(fallback_provider)
     except ValueError:
         logger.warning(f"Failed to create fallback generator ({fallback_provider})")
         fallback = None
-    
+
     return primary, fallback
 
 
@@ -74,24 +74,24 @@ class GeneratorFactory:
     """
     Factory class for creating and caching generators.
     """
-    
+
     _instances = {}
-    
+
     @classmethod
     def get(cls, provider: str = "gemini") -> BaseGenerator:
         """
         Get or create a generator instance (cached).
-        
+
         Args:
             provider: Provider name
-            
+
         Returns:
             Generator instance
         """
         if provider not in cls._instances:
             cls._instances[provider] = create_generator(provider)
         return cls._instances[provider]
-    
+
     @classmethod
     def clear_cache(cls):
         """Clear all cached generator instances."""

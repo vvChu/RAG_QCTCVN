@@ -12,27 +12,27 @@ class PyMuPDFStrategy(ParserStrategy):
     Fast, local PDF parsing using PyMuPDF (fitz).
     Best for digital-native PDFs.
     """
-    
+
     def parse(self, file_path: Path) -> Dict[str, Any]:
         """Parse PDF using PyMuPDF."""
         try:
             doc = fitz.open(file_path)
             full_text = []
             pages_data = []
-            
+
             total_tables_detected = 0
             total_images_detected = 0
-            
+
             for page_num, page in enumerate(doc, 1):
                 text = page.get_text("text")
-                
+
                 # Basic heuristics for stats
                 tables = len(re.findall(r'(?:\|.*\|)|(?:\+[-+]+\+)', text))
                 images = len(page.get_images())
-                
+
                 total_tables_detected += tables
                 total_images_detected += images
-                
+
                 page_info = {
                     'page_number': page_num,
                     'text': text,
@@ -40,17 +40,17 @@ class PyMuPDFStrategy(ParserStrategy):
                     'tables_detected': tables,
                     'images_detected': images
                 }
-                
+
                 pages_data.append(page_info)
                 full_text.append(text)
-                
+
             doc.close()
-            
+
             combined_text = "\n".join(full_text)
-            
+
             if not combined_text or not combined_text.strip():
                  raise ValueError("PyMuPDF extracted no text (likely scanned)")
-            
+
             return {
                 'text': combined_text,
                 'pages': pages_data,
@@ -67,7 +67,7 @@ class PyMuPDFStrategy(ParserStrategy):
                     'file_size': file_path.stat().st_size
                 }
             }
-            
+
         except Exception as e:
             logger.error(f"PyMuPDF failed for {file_path.name}: {e}")
             raise
