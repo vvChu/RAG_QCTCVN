@@ -86,7 +86,7 @@ packages = ["src/ccba_rag"]
 target-version = "py311"
 line-length = 100
 select = ["E", "F", "I", "N", "W", "UP"]
-ignore = ["E501"]
+ignore = ["E501", "UP006", "UP035", "UP045"]
 
 [tool.ruff.isort]
 known-first-party = ["ccba_rag"]
