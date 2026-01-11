@@ -6,8 +6,8 @@ Supports multiple reranker backends:
 - CrossEncoderReranker: Full cross-encoder (slower, more accurate)
 """
 
-from typing import Optional
 import time
+from typing import Dict, List, Optional, Tuple
 
 from ccba_rag.core.base import BaseReranker
 from ccba_rag.core.settings import settings
