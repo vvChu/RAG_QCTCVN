@@ -1,12 +1,5 @@
 from .base import IngestionPipeline, PipelineStage
-from .stages import (
-    LoadStage,
-    MetadataStage,
-    ChunkStage,
-    EmbedStage,
-    VectorStoreStage,
-    VerifyStage
-)
+from .stages import ChunkStage, EmbedStage, LoadStage, MetadataStage, VectorStoreStage, VerifyStage
 
 __all__ = [
     'IngestionPipeline',

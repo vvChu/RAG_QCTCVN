@@ -1,10 +1,12 @@
-from typing import List, Dict, Any, Optional
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 from ccba_rag.utils.logging import get_logger
+
 from .base import ParserStrategy
-from .pymupdf import PyMuPDFStrategy
-from .llama_parse import LlamaParseStrategy
 from .gemini_vision import GeminiVisionStrategy
+from .llama_parse import LlamaParseStrategy
+from .pymupdf import PyMuPDFStrategy
 
 logger = get_logger(__name__)
 

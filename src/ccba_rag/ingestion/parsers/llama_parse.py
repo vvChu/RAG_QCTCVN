@@ -1,10 +1,13 @@
 import os
-import nest_asyncio
-from typing import Dict, Any, List
 from pathlib import Path
-from .base import ParserStrategy
-from ccba_rag.utils.logging import get_logger
+from typing import Any, Dict, List
+
+import nest_asyncio
+
 from ccba_rag.core.settings import settings
+from ccba_rag.utils.logging import get_logger
+
+from .base import ParserStrategy
 
 logger = get_logger(__name__)
 

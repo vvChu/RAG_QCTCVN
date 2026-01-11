@@ -9,7 +9,8 @@ This enables:
 """
 
 from abc import ABC, abstractmethod
-from typing import List, Dict, Tuple, Optional, Any
+from typing import Any, Dict, List, Optional, Tuple
+
 import numpy as np
 
 

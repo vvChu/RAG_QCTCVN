@@ -1,11 +1,14 @@
-from typing import Dict, Any, List
-from pathlib import Path
-import fitz
 import base64
 import time
-from .base import ParserStrategy
-from ccba_rag.utils.logging import get_logger
+from pathlib import Path
+from typing import Any, Dict, List
+
+import fitz
+
 from ccba_rag.core.settings import settings
+from ccba_rag.utils.logging import get_logger
+
+from .base import ParserStrategy
 
 logger = get_logger(__name__)
 

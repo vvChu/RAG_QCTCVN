@@ -4,8 +4,9 @@ Prompt Management for the CCBA RAG System
 Loads prompts from config/prompts.yaml and provides formatting utilities.
 """
 
-from typing import List, Dict, Any, Optional
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
 import yaml
 
 from ccba_rag.core.settings import settings

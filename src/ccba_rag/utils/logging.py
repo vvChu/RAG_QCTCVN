@@ -10,7 +10,6 @@ from typing import Optional
 
 from ccba_rag.core.settings import settings
 
-
 # Define custom format
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"

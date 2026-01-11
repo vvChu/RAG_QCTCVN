@@ -1,10 +1,12 @@
-from typing import Any, List
 from pathlib import Path
-from ccba_rag.utils.logging import get_logger
-from .base import PipelineStage, PipelineContext
-from ccba_rag.ingestion.parsers import DocumentParser
+from typing import Any, List
+
 from ccba_rag.ingestion.metadata_extractor import DocumentMetadataExtractor
+from ccba_rag.ingestion.parsers import DocumentParser
 from ccba_rag.ingestion.utils import generate_document_id
+from ccba_rag.utils.logging import get_logger
+
+from .base import PipelineContext, PipelineStage
 
 logger = get_logger(__name__)
 

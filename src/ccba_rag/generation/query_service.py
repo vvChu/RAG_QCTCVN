@@ -4,10 +4,10 @@ Query Service - Orchestrates RAG queries with caching
 Provides a higher-level interface for query execution.
 """
 
-from typing import List, Dict, Any, Optional
-from functools import lru_cache
 import hashlib
 import time
+from functools import lru_cache
+from typing import Any, Dict, List, Optional
 
 from ccba_rag.utils.logging import get_logger
 

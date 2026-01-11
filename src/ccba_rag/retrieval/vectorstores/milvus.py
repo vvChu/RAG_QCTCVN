@@ -5,20 +5,13 @@ Supports both local Milvus and Zilliz Cloud with hybrid search (Dense + Sparse).
 Uses Reciprocal Rank Fusion (RRF) for combining search results.
 """
 
-from typing import List, Dict, Any, Optional
 import json
+from typing import Any, Dict, List, Optional
 
-from pymilvus import (
-    connections,
-    Collection,
-    CollectionSchema,
-    FieldSchema,
-    DataType,
-    utility
-)
+from pymilvus import Collection, CollectionSchema, DataType, FieldSchema, connections, utility
 
 from ccba_rag.core.base import BaseVectorDB
-from ccba_rag.core.models import Chunk, RetrievalResult, ChunkLevel
+from ccba_rag.core.models import Chunk, ChunkLevel, RetrievalResult
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
 

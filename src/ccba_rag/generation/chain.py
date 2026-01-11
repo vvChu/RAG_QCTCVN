@@ -4,8 +4,8 @@ RAG Chain - Orchestrates retrieval and generation pipeline
 Supports fallback between multiple LLM providers.
 """
 
-from typing import List, Dict, Any, Optional
 import time
+from typing import Any, Dict, List, Optional
 
 from ccba_rag.core.base import BaseGenerator
 from ccba_rag.core.settings import settings

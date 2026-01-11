@@ -1,17 +1,25 @@
-from typing import List, Optional
-from pathlib import Path
-import json
 import asyncio
+import json
 from datetime import datetime
+from pathlib import Path
+from typing import List, Optional
 
-from ccba_rag.utils.logging import get_logger
 from ccba_rag.core.constants import SUPPORTED_EXTENSIONS
-from ccba_rag.ingestion.pipeline import IngestionPipeline, LoadStage, MetadataStage, ChunkStage, EmbedStage, VectorStoreStage, VerifyStage
 from ccba_rag.ingestion.parsers import DocumentParser
+from ccba_rag.ingestion.pipeline import (
+    ChunkStage,
+    EmbedStage,
+    IngestionPipeline,
+    LoadStage,
+    MetadataStage,
+    VectorStoreStage,
+    VerifyStage,
+)
+from ccba_rag.ingestion.report import IngestionReport
 from ccba_rag.ingestion.splitters import StructuralSplitter
 from ccba_rag.retrieval.embedder import BGEEmbedder
 from ccba_rag.retrieval.vectorstores.milvus import MilvusStore
-from ccba_rag.ingestion.report import IngestionReport
+from ccba_rag.utils.logging import get_logger
 
 logger = get_logger(__name__)
 

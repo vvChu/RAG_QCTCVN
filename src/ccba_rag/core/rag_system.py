@@ -5,8 +5,8 @@ This is the primary entry point for using the RAG system programmatically.
 It orchestrates all components: Embedder, VectorDB, Retriever, Generator.
 """
 
-from typing import Optional, Dict, Any
 from functools import cached_property
+from typing import Any, Dict, Optional
 
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger

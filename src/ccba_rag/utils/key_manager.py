@@ -2,6 +2,7 @@
 import os
 from itertools import cycle
 from typing import Optional
+
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
 

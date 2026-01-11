@@ -166,7 +166,7 @@ class CrossEncoderReranker(BaseReranker):
             max_length: Maximum sequence length
         """
         import torch
-        from transformers import AutoTokenizer, AutoModelForSequenceClassification
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
         self.model_name = model_name
         self.batch_size = batch_size

@@ -9,8 +9,8 @@ Automatically extracts document metadata from content:
 """
 
 import re
-from typing import Dict, Optional, List
 from dataclasses import dataclass
+from typing import Dict, List, Optional
 
 from ccba_rag.utils.logging import get_logger
 

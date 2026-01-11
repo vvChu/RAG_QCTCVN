@@ -4,9 +4,10 @@ Pydantic Domain Models for the CCBA RAG System
 These models define the core data structures used throughout the pipeline.
 """
 
-from typing import List, Optional, Dict, Any
-from pydantic import BaseModel, Field
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
+from pydantic import BaseModel, Field
 
 
 class DocumentType(str, Enum):

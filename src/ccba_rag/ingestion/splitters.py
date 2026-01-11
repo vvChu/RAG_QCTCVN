@@ -4,16 +4,20 @@ Text Splitters for Structural Chunking
 Splits Vietnamese legal documents by structure (Chapter, Article, Clause).
 """
 
-from typing import List, Dict, Optional
-import re
 import hashlib
+import re
+from typing import Dict, List, Optional
 
-from ccba_rag.core.models import Chunk, ChunkLevel
 from ccba_rag.core.constants import (
-    CHAPTER_PATTERN, ARTICLE_PATTERN, CLAUSE_PATTERN,
-    SECTION_LEVEL_1_PATTERN, SECTION_LEVEL_2_PATTERN,
-    MAX_CHUNK_CHARS, MIN_CHUNK_CHARS
+    ARTICLE_PATTERN,
+    CHAPTER_PATTERN,
+    CLAUSE_PATTERN,
+    MAX_CHUNK_CHARS,
+    MIN_CHUNK_CHARS,
+    SECTION_LEVEL_1_PATTERN,
+    SECTION_LEVEL_2_PATTERN,
 )
+from ccba_rag.core.models import Chunk, ChunkLevel
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
 

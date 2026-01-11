@@ -5,11 +5,11 @@ Uses Groq API for fast LLM inference with Llama models.
 Typically used as fallback when Gemini is rate-limited.
 """
 
-from typing import List, Dict, Optional, Any
+from typing import Any, Dict, List, Optional
 
 from ccba_rag.core.base import BaseGenerator
-from ccba_rag.core.settings import settings
 from ccba_rag.core.prompts import prompt_manager
+from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
 
 logger = get_logger(__name__)

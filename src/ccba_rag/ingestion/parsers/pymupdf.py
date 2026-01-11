@@ -1,9 +1,12 @@
-from typing import Dict, Any, List
-from pathlib import Path
-import fitz  # PyMuPDF
 import re
-from .base import ParserStrategy
+from pathlib import Path
+from typing import Any, Dict, List
+
+import fitz  # PyMuPDF
+
 from ccba_rag.utils.logging import get_logger
+
+from .base import ParserStrategy
 
 logger = get_logger(__name__)
 
