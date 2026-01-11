@@ -5,7 +5,7 @@ Implements Dense + Sparse embeddings for semantic and lexical search.
 CPU-optimized with configurable sequence length and batch size.
 """
 
-from typing import List, Dict, Union, Tuple, Optional
+from typing import Union, Optional
 import numpy as np
 from tqdm import tqdm
 

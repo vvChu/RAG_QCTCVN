@@ -12,11 +12,11 @@ class KeyManager:
     Manages API keys for services with quota limits (like LlamaCloud).
     Supports rotation and round-robin selection.
     """
-    
+
     def __init__(self, key_env_var: str = "LLAMA_CLOUD_API_KEY", setting_attr: str = "llama_cloud_api_key"):
         self.key_env_var = key_env_var
         self.setting_attr = setting_attr
-        self._keys: List[str] = []
+        self._keys: list[str] = []
         self._iterator = None
         self._load_keys()
         
