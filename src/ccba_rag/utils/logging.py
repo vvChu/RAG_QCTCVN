@@ -52,16 +52,16 @@ def get_logger(name: str) -> logging.Logger:
     
     Args:
         name: Module name (typically __name__)
-    
+
     Returns:
         Configured logger instance
     """
     logger = logging.getLogger(name)
-    
+
     # Ensure it inherits from root if not already configured
     if not logger.handlers:
         logger.setLevel(getattr(logging, settings.log_level.upper(), logging.INFO))
-    
+
     return logger
 
 
