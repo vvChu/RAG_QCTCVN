@@ -5,8 +5,8 @@ This is the primary entry point for using the RAG system programmatically.
 It orchestrates all components: Embedder, VectorDB, Retriever, Generator.
 """
 
-from typing import Optional, Dict, Any
 from functools import cached_property
+from typing import Any, Dict, Optional
 
 from ccba_rag.core.settings import settings
 from ccba_rag.utils.logging import get_logger
@@ -17,19 +17,19 @@ logger = get_logger(__name__)
 class RAGSystem:
     """
     Complete RAG System for Vietnamese Legal Documents.
-    
+
     Service-oriented architecture:
     - Lazy-loaded components (embedder, vector_db, retriever, generators)
     - IndexingService for document ingestion
     - QueryService for query execution
     - Support for multiple LLM providers with fallback
-    
+
     Usage:
         system = RAGSystem()
         result = system.query("Chiều cao tối thiểu của tầng 1?")
         print(result['answer'])
     """
-    
+
     def __init__(
         self,
         config: Optional[Dict] = None,
@@ -38,7 +38,7 @@ class RAGSystem:
     ):
         """
         Initialize RAG System.
-        
+
         Args:
             config: Optional config overrides
             mode: Operating mode ('query', 'index')
@@ -47,7 +47,7 @@ class RAGSystem:
         self.config = config or {}
         self.mode = mode
         self.verbose = verbose
-        
+
         # Lazy-loaded component caches
         self._embedder = None
         self._vector_db = None
@@ -56,17 +56,17 @@ class RAGSystem:
         self._primary_generator = None
         self._fallback_generator = None
         self._chain = None
-        
+
         if verbose:
             logger.info("RAG System initialized")
-    
+
     @cached_property
     def embedder(self):
         """Get or create BGE-M3 embedder."""
         from ccba_rag.retrieval.embedder import BGEEmbedder
         logger.info("Initializing Embedder...")
         return BGEEmbedder()
-    
+
     @cached_property
     def vector_db(self):
         """Get or create Milvus vector store."""
@@ -77,17 +77,17 @@ class RAGSystem:
         if store.has_collection():
             store.load_collection()
         return store
-    
+
     @cached_property
     def reranker(self):
         """Get or create reranker (if enabled)."""
         if not settings.enable_reranker:
             return None
-        
+
         from ccba_rag.retrieval.rerankers import BGEM3Reranker
         logger.info("Initializing Reranker...")
         return BGEM3Reranker()
-    
+
     @cached_property
     def retriever(self):
         """Get or create hybrid retriever."""
@@ -98,7 +98,7 @@ class RAGSystem:
             embedder=self.embedder,
             reranker=self.reranker
         )
-    
+
     @cached_property
     def primary_generator(self):
         """Get or create primary generator."""
@@ -109,7 +109,7 @@ class RAGSystem:
         except Exception as e:
             logger.warning(f"Failed to create Gemini generator: {e}")
             return create_generator("groq")
-    
+
     @cached_property
     def fallback_generator(self):
         """Get or create fallback generator."""
@@ -120,7 +120,7 @@ class RAGSystem:
         except Exception as e:
             logger.warning(f"Failed to create fallback generator: {e}")
             return None
-    
+
     @cached_property
     def chain(self):
         """Get or create RAG chain."""
@@ -131,7 +131,7 @@ class RAGSystem:
             primary_generator=self.primary_generator,
             fallback_generator=self.fallback_generator
         )
-    
+
     def query(
         self,
         question: str,
@@ -140,30 +140,30 @@ class RAGSystem:
     ) -> Dict[str, Any]:
         """
         Execute a RAG query.
-        
+
         Args:
             question: User question
             verbose: Show results
             **kwargs: Additional args (top_k, top_n, filters, etc.)
-            
+
         Returns:
             Query result dict with answer, contexts, stats
         """
         result = self.chain.query(question, **kwargs)
-        
+
         if verbose and self.verbose:
             self._display_results(result)
-        
+
         return result
-    
+
     def retrieve(self, question: str, **kwargs) -> Dict[str, Any]:
         """
         Retrieve contexts without generating answer.
-        
+
         Args:
             question: User question
             **kwargs: Retrieval parameters
-            
+
         Returns:
             Dict with contexts and retrieval stats
         """
@@ -173,32 +173,32 @@ class RAGSystem:
             'contexts': contexts,
             'stats': stats,
         }
-    
+
     def index_documents(self, directory: str, drop_existing: bool = False):
         """
         Index documents from a directory.
-        
+
         Args:
             directory: Path to documents directory
             drop_existing: Drop existing collection first
         """
         from ccba_rag.ingestion.indexing_service import IndexingService
         from ccba_rag.ingestion.splitters import StructuralSplitter
-        
+
         logger.info(f"Starting indexing from: {directory}")
-        
+
         service = IndexingService(
             chunker=StructuralSplitter(),
             embedder=self.embedder,
             vector_db=self.vector_db,
             verbose=self.verbose
         )
-        
+
         if drop_existing:
             service.index_directory(directory, drop_existing=True)
         else:
             service.sync_directory(directory)
-    
+
     def _display_results(self, result: Dict):
         """Display query results in formatted output."""
         print("\n" + "=" * 60)
