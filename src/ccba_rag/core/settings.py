@@ -3,15 +3,14 @@ Application Settings with YAML + Environment Variable Support
 
 Priority order:
 1. Environment variables (highest)
-2. .env file  
+2. .env file
 3. config/default.yaml
 4. Hardcoded defaults (lowest)
 """
 
-import os
-from pathlib import Path
-from typing import Optional, Dict, Any
 from functools import lru_cache
+from pathlib import Path
+from typing import Any, Dict, Optional
 
 import yaml
 from pydantic import Field
@@ -22,7 +21,7 @@ def load_yaml_config() -> Dict[str, Any]:
     """Load configuration from YAML file."""
     config_path = Path(__file__).parent.parent.parent.parent / "config" / "default.yaml"
     if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(config_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     return {}
 
@@ -31,7 +30,7 @@ def load_prompts_config() -> Dict[str, str]:
     """Load prompts from YAML file."""
     config_path = Path(__file__).parent.parent.parent.parent / "config" / "prompts.yaml"
     if config_path.exists():
-        with open(config_path, "r", encoding="utf-8") as f:
+        with open(config_path, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     return {}
 
@@ -39,13 +38,13 @@ def load_prompts_config() -> Dict[str, str]:
 class Settings(BaseSettings):
     """
     Application Settings using Pydantic.
-    
+
     Loads from environment variables and .env file.
     YAML config is used for defaults that can be overridden.
     """
     model_config = SettingsConfigDict(
-        env_file='.env', 
-        env_file_encoding='utf-8', 
+        env_file='.env',
+        env_file_encoding='utf-8',
         extra='ignore',
         env_nested_delimiter='__'
     )
@@ -59,7 +58,7 @@ class Settings(BaseSettings):
     milvus_password: str = Field(default="", alias="MILVUS_PASSWORD")
     milvus_secure: bool = Field(default=False, alias="MILVUS_SECURE")
     milvus_collection_name: str = Field(default="legal_documents", alias="MILVUS_COLLECTION_NAME")
-    
+
     # HNSW Index Parameters
     milvus_hnsw_m: int = Field(default=8, alias="MILVUS_HNSW_M")
     milvus_hnsw_ef_construction: int = Field(default=100, alias="MILVUS_HNSW_EF_CONSTRUCTION")
@@ -110,13 +109,13 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
     environment: str = Field(default="development", alias="ENVIRONMENT")
-    
+
     # -------------------------------------------------------------------------
     # Generation Defaults
     # -------------------------------------------------------------------------
     generation_temperature: float = Field(default=0.1, alias="GENERATION_TEMPERATURE")
     generation_max_tokens: int = Field(default=1024, alias="GENERATION_MAX_TOKENS")
-    
+
     # -------------------------------------------------------------------------
     # Ingestion
     # -------------------------------------------------------------------------
@@ -133,7 +132,7 @@ class Settings(BaseSettings):
         return load_prompts_config()
 
 
-@lru_cache()
+@lru_cache
 def get_settings() -> Settings:
     """Get cached settings instance."""
     return Settings()

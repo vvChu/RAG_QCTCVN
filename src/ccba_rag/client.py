@@ -1,7 +1,8 @@
 
+from typing import Any, Dict, List
+
 import requests
-import time
-from typing import Dict, Any, List, Optional
+
 from ccba_rag.utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -11,10 +12,10 @@ class APIClient:
     Client for interacting with the CCBA RAG API Server.
     Encapsulates endpoint urls, timeout logic, and error handling.
     """
-    
+
     def __init__(self, base_url: str = "http://127.0.0.1:8000"):
         self.base_url = base_url.rstrip("/")
-        
+
     def _handle_response(self, response: requests.Response) -> Dict[str, Any]:
         """Parse JSON or raise error."""
         try:
@@ -38,11 +39,11 @@ class APIClient:
         data = self._handle_response(resp)
         return data.get("documents", [])
 
-    def query(self, 
-              query: str, 
-              history: List[Dict] = None, 
+    def query(self,
+              query: str,
+              history: List[Dict] = None,
               filters: Dict = None,
-              top_k: int = 20, 
+              top_k: int = 20,
               top_n: int = 5,
               use_expansion: bool = False,
               use_reranker: bool = True
@@ -58,7 +59,7 @@ class APIClient:
         }
         if filters:
             payload["filters"] = filters
-            
+
         resp = requests.post(f"{self.base_url}/query", json=payload, timeout=300)
         return self._handle_response(resp)
 
