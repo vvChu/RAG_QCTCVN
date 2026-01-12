@@ -35,13 +35,13 @@ class TestGeneratorFactory:
     
     def test_factory_caches_generators(self):
         """Test that factory caches generator instances."""
-        from ccba_rag.generation.factory import create_generator, _generator_cache
+        from ccba_rag.generation.factory import GeneratorFactory
         
         # Clear cache first
-        _generator_cache.clear()
+        GeneratorFactory.clear_cache()
         
-        g1 = create_generator("gemini")
-        g2 = create_generator("gemini")
+        g1 = GeneratorFactory.get("gemini")
+        g2 = GeneratorFactory.get("gemini")
         
         assert g1 is g2  # Same cached instance
 

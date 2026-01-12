@@ -1,7 +1,7 @@
 """
 CCBA RAG System - Vietnamese Construction Standards Expert
 
-A production-grade RAG (Retrieval-Augmented Generation) system for 
+A production-grade RAG (Retrieval-Augmented Generation) system for
 Vietnamese construction laws, BIM standards, and technical documents.
 """
 
