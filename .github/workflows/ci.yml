@@ -3,9 +3,9 @@ name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [master, develop]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   lint:
@@ -47,6 +47,8 @@ jobs:
           pytest tests/test_core.py tests/test_generators.py -v --tb=short
         env:
           PYTHONPATH: src
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       
       - name: Upload coverage
         uses: codecov/codecov-action@v3
@@ -64,7 +66,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Build Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: false

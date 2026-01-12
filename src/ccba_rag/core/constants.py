@@ -15,19 +15,19 @@ import re
 
 # Chapter: "CHƯƠNG I", "Chương 1", "CHƯƠNG I:", "Chương I - Quy định chung"
 CHAPTER_PATTERN = re.compile(
-    r'(?:CHƯƠNG|Chương)\s+([IVXLCDM]+|[0-9]+)[\s:.\-]*(.+)?', 
+    r'(?:CHƯƠNG|Chương)\s+([IVXLCDM]+|[0-9]+)[\s:.\-]*(.+)?',
     re.IGNORECASE
 )
 
 # Article: "ĐIỀU 1", "Điều 1.", "Điều 1: Phạm vi áp dụng"
 ARTICLE_PATTERN = re.compile(
-    r'(?:ĐIỀU|Điều)\s+([0-9]+)[\s:.\-]*(.+)?', 
+    r'(?:ĐIỀU|Điều)\s+([0-9]+)[\s:.\-]*(.+)?',
     re.IGNORECASE
 )
 
 # Clause: "1.", "2.", etc. at start of line
 CLAUSE_PATTERN = re.compile(
-    r'^\s*([0-9]+)[\s.]+', 
+    r'^\s*([0-9]+)[\s.]+',
     re.MULTILINE
 )
 
@@ -42,7 +42,7 @@ SECTION_LEVEL_3_PATTERN = re.compile(r'^\s*(\d+\.\d+\.\d+)\.?\s+(.+)', re.MULTIL
 
 # Appendix: "PHỤ LỤC A", "Phụ lục 1"
 APPENDIX_PATTERN = re.compile(
-    r'(?:PHỤ LỤC|Phụ lục)\s+([0-9A-Z]+)[\s:.\-]*(.*)?', 
+    r'(?:PHỤ LỤC|Phụ lục)\s+([0-9A-Z]+)[\s:.\-]*(.*)?',
     re.IGNORECASE
 )
 
@@ -70,7 +70,7 @@ HNSW_DEFAULT_M = 8
 HNSW_DEFAULT_EF_CONSTRUCTION = 100
 HNSW_DEFAULT_EF_SEARCH = 32
 
-# RRF (Reciprocal Rank Fusion) 
+# RRF (Reciprocal Rank Fusion)
 RRF_DEFAULT_K = 60
 
 # Generation defaults
