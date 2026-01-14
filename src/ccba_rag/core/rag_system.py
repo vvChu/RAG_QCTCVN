@@ -30,12 +30,7 @@ class RAGSystem:
         print(result['answer'])
     """
 
-    def __init__(
-        self,
-        config: Optional[Dict] = None,
-        mode: str = 'query',
-        verbose: bool = True
-    ):
+    def __init__(self, config: Optional[Dict] = None, mode: str = "query", verbose: bool = True):
         """
         Initialize RAG System.
 
@@ -64,6 +59,7 @@ class RAGSystem:
     def embedder(self):
         """Get or create BGE-M3 embedder."""
         from ccba_rag.retrieval.embedder import BGEEmbedder
+
         logger.info("Initializing Embedder...")
         return BGEEmbedder()
 
@@ -71,6 +67,7 @@ class RAGSystem:
     def vector_db(self):
         """Get or create Milvus vector store."""
         from ccba_rag.retrieval.vectorstores.milvus import MilvusStore
+
         logger.info("Initializing Vector DB...")
         store = MilvusStore()
         # Ensure connected and collection loaded
@@ -85,6 +82,7 @@ class RAGSystem:
             return None
 
         from ccba_rag.retrieval.rerankers import BGEM3Reranker
+
         logger.info("Initializing Reranker...")
         return BGEM3Reranker()
 
@@ -92,17 +90,17 @@ class RAGSystem:
     def retriever(self):
         """Get or create hybrid retriever."""
         from ccba_rag.retrieval.retriever import HybridRetriever
+
         logger.info("Initializing Retriever...")
         return HybridRetriever(
-            vector_db=self.vector_db,
-            embedder=self.embedder,
-            reranker=self.reranker
+            vector_db=self.vector_db, embedder=self.embedder, reranker=self.reranker
         )
 
     @cached_property
     def primary_generator(self):
         """Get or create primary generator."""
         from ccba_rag.generation.factory import create_generator
+
         logger.info("Initializing Primary Generator (Gemini)...")
         try:
             return create_generator("gemini")
@@ -114,6 +112,7 @@ class RAGSystem:
     def fallback_generator(self):
         """Get or create fallback generator."""
         from ccba_rag.generation.factory import create_generator
+
         logger.info("Initializing Fallback Generator (Groq)...")
         try:
             return create_generator("groq")
@@ -125,19 +124,15 @@ class RAGSystem:
     def chain(self):
         """Get or create RAG chain."""
         from ccba_rag.generation.chain import RAGChain
+
         logger.info("Initializing RAG Chain...")
         return RAGChain(
             retriever=self.retriever,
             primary_generator=self.primary_generator,
-            fallback_generator=self.fallback_generator
+            fallback_generator=self.fallback_generator,
         )
 
-    def query(
-        self,
-        question: str,
-        verbose: bool = True,
-        **kwargs
-    ) -> Dict[str, Any]:
+    def query(self, question: str, verbose: bool = True, **kwargs) -> Dict[str, Any]:
         """
         Execute a RAG query.
 
@@ -169,9 +164,9 @@ class RAGSystem:
         """
         contexts, stats = self.retriever.retrieve(question, **kwargs)
         return {
-            'query': question,
-            'contexts': contexts,
-            'stats': stats,
+            "query": question,
+            "contexts": contexts,
+            "stats": stats,
         }
 
     def index_documents(self, directory: str, drop_existing: bool = False):
@@ -182,37 +177,34 @@ class RAGSystem:
             directory: Path to documents directory
             drop_existing: Drop existing collection first
         """
+        import asyncio
+
         from ccba_rag.ingestion.indexing_service import IndexingService
-        from ccba_rag.ingestion.splitters import StructuralSplitter
 
         logger.info(f"Starting indexing from: {directory}")
 
+        # IndexingService creates its own components internally
         service = IndexingService(
-            chunker=StructuralSplitter(),
-            embedder=self.embedder,
-            vector_db=self.vector_db,
-            verbose=self.verbose
+            collection_name=settings.milvus_collection_name, chunk_size=1024, chunk_overlap=200
         )
 
-        if drop_existing:
-            service.index_directory(directory, drop_existing=True)
-        else:
-            service.sync_directory(directory)
+        # Run the async index method
+        asyncio.run(service.index_directory(directory, drop_existing=drop_existing))
 
     def _display_results(self, result: Dict):
         """Display query results in formatted output."""
         print("\n" + "=" * 60)
         print("ANSWER:")
-        print(result.get('answer', 'No answer'))
+        print(result.get("answer", "No answer"))
         print("\n" + "-" * 60)
         print("STATISTICS:")
-        stats = result.get('stats', {})
+        stats = result.get("stats", {})
         for key, value in stats.items():
-            if 'ms' in key:
+            if "ms" in key:
                 print(f"  {key}: {value:.1f}ms")
             else:
                 print(f"  {key}: {value}")
         print(f"  model: {result.get('model')}")
-        if result.get('used_fallback'):
+        if result.get("used_fallback"):
             print("  ⚠️ Used fallback generator")
         print("=" * 60 + "\n")
