@@ -182,22 +182,20 @@ class RAGSystem:
             directory: Path to documents directory
             drop_existing: Drop existing collection first
         """
+        import asyncio
         from ccba_rag.ingestion.indexing_service import IndexingService
-        from ccba_rag.ingestion.splitters import StructuralSplitter
 
         logger.info(f"Starting indexing from: {directory}")
 
+        # IndexingService creates its own components internally
         service = IndexingService(
-            chunker=StructuralSplitter(),
-            embedder=self.embedder,
-            vector_db=self.vector_db,
-            verbose=self.verbose
+            collection_name=settings.milvus_collection_name,
+            chunk_size=1024,
+            chunk_overlap=200
         )
 
-        if drop_existing:
-            service.index_directory(directory, drop_existing=True)
-        else:
-            service.sync_directory(directory)
+        # Run the async index method
+        asyncio.run(service.index_directory(directory, drop_existing=drop_existing))
 
     def _display_results(self, result: Dict):
         """Display query results in formatted output."""

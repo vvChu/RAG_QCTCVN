@@ -15,10 +15,10 @@ class TestConfig:
     def test_settings_load_success(self, mock_env):
         # We need to reload the module to pick up env vars because Settings is instantiated at module level
         import importlib
-        from src.config import settings
-        importlib.reload(settings)
+        import ccba_rag.core.settings as settings_module
+        importlib.reload(settings_module)
         
-        config = settings.settings
+        config = settings_module.settings
         assert config.gemini_api_key == 'test_key'
         assert config.milvus_host == 'localhost'
         assert config.milvus_port == '19530'
@@ -32,10 +32,10 @@ class TestConfig:
             # pydantic raises ValidationError
             from pydantic import ValidationError
             import importlib
-            from src.config import settings
+            import ccba_rag.core.settings as settings_module
             
             with pytest.raises(ValidationError):
-                importlib.reload(settings)
+                importlib.reload(settings_module)
 
     def test_settings_type_conversion(self):
         with patch.dict(os.environ, {
@@ -44,9 +44,9 @@ class TestConfig:
             'BGE_USE_FP16': 'False'
         }):
             import importlib
-            from src.config import settings
-            importlib.reload(settings)
+            import ccba_rag.core.settings as settings_module
+            importlib.reload(settings_module)
             
-            config = settings.settings
+            config = settings_module.settings
             assert config.milvus_hnsw_m == 16
             assert config.bge_use_fp16 is False
