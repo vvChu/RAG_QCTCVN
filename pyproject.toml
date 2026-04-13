@@ -15,7 +15,7 @@ dependencies = [
     "FlagEmbedding>=1.2.0",
     "transformers>=4.35.0",
     "torch>=2.0.0",
-    "pymilvus>=2.3.0",
+    "pymilvus>=2.6.12",
     
     # LLM Providers
     "google-genai>=0.2.0",
