@@ -19,7 +19,7 @@ dependencies = [
     
     # LLM Providers
     "google-genai>=0.2.0",
-    "groq>=0.9.0",
+    "groq>=1.1.2",
     "openai>=1.0.0",  # For DeepSeek API compatibility
     
     # Document Processing
